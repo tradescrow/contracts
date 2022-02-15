@@ -61,7 +61,7 @@ contract Tradescrow is Ownable, ReentrancyGuard, IERC721Receiver {
     event SwapProposed(address indexed from, address indexed to, uint256 indexed swapId, Offer);
     event SwapInitiated(address indexed from, address indexed to, uint256 indexed swapId, Offer);
     event SwapExecuted(address indexed from, address indexed to, uint256 indexed swapId);
-    event SwapCanceled(address indexed canceledBy, uint256 indexed swapId);
+    event SwapCancelled(address indexed cancelledBy, uint256 indexed swapId);
     event AppFeeChanged(uint256 fee);
 
     // Sets the initial fee and assigns ownership
@@ -85,7 +85,7 @@ contract Tradescrow is Ownable, ReentrancyGuard, IERC721Receiver {
     * @dev Step 1: User proposes a swap to another address that contains any combination of
     *      NFTs (ERC721), coins (ERC20), and native asset (base coin ~= ETH). All proposed
     *      assets are transferred to this contract and kept there until the swap is either
-    *      accepted or canceled.
+    *      accepted or cancelled.
     *
     * @param target Address that the initiating user wants to trade with
     * @param offer Struct that defines the proposed offer
@@ -125,7 +125,7 @@ contract Tradescrow is Ownable, ReentrancyGuard, IERC721Receiver {
     *      party by responding with their offer that contains any combination of
     *      NFTs (ERC721), coins (ERC20), and native asset (base coin ~= ETH). All proposed
     *      assets are transferred to this contract and kept there until the swap is either
-    *      accepted or canceled. This can only be called by a user with a pending swap.
+    *      accepted or cancelled. This can only be called by a user with a pending swap.
     *
     * @param swapId ID of the swap that the target user is invited to participate in
     * @param offer Struct that defines the proposed response offer
@@ -215,7 +215,7 @@ contract Tradescrow is Ownable, ReentrancyGuard, IERC721Receiver {
         transferOne(_swaps[swapId].initiator, _swaps[swapId].initiator);
         transferOne(_swaps[swapId].target, _swaps[swapId].target);
 
-        emit SwapCanceled(msg.sender, swapId);
+        emit SwapCancelled(msg.sender, swapId);
 
         delete _swaps[swapId];
     }
@@ -244,18 +244,6 @@ contract Tradescrow is Ownable, ReentrancyGuard, IERC721Receiver {
 
         recipient.transfer((address(this).balance - _native));
     }
-
-    /**
-    * notice Withdraw accrued fees from the contract to an address
-    * dev Can only be called by the contract owner
-    *
-    * param recipient Ox address of the recipient
-    */
-    //function withdrawCoin(address payable recipient, address tokenAddress, uint256 amount) external nonReentrant onlyOwner {
-    //    require(recipient != address(0), "Tradescrow: transfer to the zero address");
-    //    IERC20(tokenAddress).safeTransfer(recipient, amount);
-    //    recipient.transfer((address(this).balance - _native));
-    //}
 
     // Internal Functions
 
