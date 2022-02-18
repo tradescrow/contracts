@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/harmony-contract-verification-tutorial.iml" filepath="$PROJECT_DIR$/.idea/harmony-contract-verification-tutorial.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/tradescrow-contract.iml" filepath="$PROJECT_DIR$/.idea/tradescrow-contract.iml" />
     </modules>
   </component>
 </project>

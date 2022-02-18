@@ -32,19 +32,9 @@ module.exports = {
     ]
 },
   networks: {
-    hardhat: {
-      chainId: 1337
-    }, 
     harmony: {
-      // url: "https://api.s0.t.hmny.io",
-      url: "https://harmony-0-rpc.gateway.pokt.network",
+      url: process.env.PRIVATE_RPC_URL,
       accounts: [process.env.PRIVATE_KEY]
     },
-  },
-  etherscan: {
-    apiKey: {
-      harmony: 'your API key'
-    }
   }
-
 };

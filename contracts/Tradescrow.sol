@@ -6,13 +6,14 @@ import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+import "@openzeppelin/contracts/security/Pausable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 /**
 * @title Trade & Escrow v1.0.0
 * @author @DirtyCajunRice
 */
-contract Tradescrow is Ownable, ReentrancyGuard, IERC721Receiver {
+contract Tradescrow is Ownable, ReentrancyGuard, Pausable, IERC721Receiver {
 
     // Use SafeERC20 for best practice
     using SafeERC20 for IERC20;
@@ -92,7 +93,8 @@ contract Tradescrow is Ownable, ReentrancyGuard, IERC721Receiver {
     *
     * @return swapId ID of the new swap
     */
-    function proposeSwap(address target, Offer memory offer) external payable nonReentrant chargeAppFee returns(uint256) {
+    function proposeSwap(address target, Offer memory offer)
+    external payable nonReentrant chargeAppFee whenNotPaused returns(uint256) {
         _swapsCounter += 1;
 
         safeMultipleTransfersFrom(msg.sender, address(this), offer);
@@ -130,7 +132,7 @@ contract Tradescrow is Ownable, ReentrancyGuard, IERC721Receiver {
     * @param swapId ID of the swap that the target user is invited to participate in
     * @param offer Struct that defines the proposed response offer
     */
-    function initiateSwap(uint256 swapId, Offer memory offer) external payable nonReentrant chargeAppFee {
+    function initiateSwap(uint256 swapId, Offer memory offer) external payable nonReentrant chargeAppFee whenNotPaused {
         onlyTarget(swapId);
         require(
             _swaps[swapId].target.native == 0 &&
@@ -174,7 +176,7 @@ contract Tradescrow is Ownable, ReentrancyGuard, IERC721Receiver {
     *
     * @param swapId ID of the swap that the initiator wants to execute
     */
-    function acceptSwap(uint256 swapId) external nonReentrant {
+    function acceptSwap(uint256 swapId) external nonReentrant whenNotPaused {
         onlyInitiator(swapId);
         checkEmpty(_swaps[swapId].initiator);
         checkEmpty(_swaps[swapId].target);
@@ -199,7 +201,7 @@ contract Tradescrow is Ownable, ReentrancyGuard, IERC721Receiver {
     *
     * @param swapId ID of the swap that the swap participants want to cancel
     */
-    function cancelSwap(uint256 swapId) external nonReentrant {
+    function cancelSwap(uint256 swapId) external nonReentrant whenNotPaused {
         require(
             _swaps[swapId].initiator.addr == msg.sender || _swaps[swapId].target.addr == msg.sender,
             "Tradescrow: Can't cancel swap, must be swap participant"
@@ -294,12 +296,10 @@ contract Tradescrow is Ownable, ReentrancyGuard, IERC721Receiver {
     }
 
     function onERC721Received(
-    /* solhint-disable */
         address operator,
         address from,
         uint256 tokenId,
         bytes calldata data
-    /* solhint-enable */
     ) external pure override returns (bytes4) {
         return bytes4(keccak256("onERC721Received(address,address,uint256,bytes)"));
     }
