@@ -289,7 +289,11 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
             }
         }
         for (uint256 i=0; i < offer.coins.length; i++) {
-            IERC20(offer.coins[i].addr).safeTransfer(to, offer.coins[i].amount);
+            if (from == address(this)) {
+                IERC20(offer.coins[i].addr).safeTransfer(to, offer.coins[i].amount);
+            } else {
+                IERC20(offer.coins[i].addr).safeTransferFrom(from, to, offer.coins[i].amount);
+            }
         }
     }
 
