@@ -2,18 +2,20 @@
 
 pragma solidity ^0.8.9;
 
-import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
+import "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol";
+import "@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/token/ERC1155/IERC1155.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 /**
-* @title Trade & Escrow v1.0.0
+* @title Trade & Escrow v1.1.0
 * @author @DirtyCajunRice
 */
-contract Tradescrow is Ownable, ReentrancyGuard, Pausable, IERC721Receiver {
+contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155Holder {
 
     // Use SafeERC20 for best practice
     using SafeERC20 for IERC20;
@@ -33,9 +35,10 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, IERC721Receiver {
     // Storage mapping for swaps
     mapping (uint256 => Swap) private _swaps;
 
-    // NFT struct to hold the data required to create and reference an ERC721 object
+    // NFT struct to hold the data required to create and reference an ERC721/ERC1155 object
     struct Nft {
         address addr;
+        uint256 amount;
         uint256 id;
     }
 
@@ -187,8 +190,8 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, IERC721Receiver {
         // transfer NFTs from escrow to second user
         safeMultipleTransfersFrom(address(this), _swaps[swapId].target.addr, _swaps[swapId].initiator);
 
-        transferOne(_swaps[swapId].initiator, _swaps[swapId].target);
-        transferOne(_swaps[swapId].target, _swaps[swapId].initiator);
+        transferNative(_swaps[swapId].initiator, _swaps[swapId].target);
+        transferNative(_swaps[swapId].target, _swaps[swapId].initiator);
 
         emit SwapExecuted(_swaps[swapId].initiator.addr, _swaps[swapId].target.addr, swapId);
 
@@ -214,8 +217,8 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, IERC721Receiver {
             safeMultipleTransfersFrom(address(this), _swaps[swapId].target.addr, _swaps[swapId].target);
         }
 
-        transferOne(_swaps[swapId].initiator, _swaps[swapId].initiator);
-        transferOne(_swaps[swapId].target, _swaps[swapId].target);
+        transferNative(_swaps[swapId].initiator, _swaps[swapId].initiator);
+        transferNative(_swaps[swapId].target, _swaps[swapId].target);
 
         emit SwapCancelled(msg.sender, swapId);
 
@@ -279,28 +282,23 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, IERC721Receiver {
 
     function safeMultipleTransfersFrom(address from, address to, Offer memory offer) internal virtual {
         for (uint256 i=0; i < offer.nfts.length; i++) {
-            IERC721(offer.nfts[i].addr).safeTransferFrom(from, to, offer.nfts[i].id);
+            if (offer.nfts[i].amount == 0) {
+                IERC721(offer.nfts[i].addr).safeTransferFrom(from, to, offer.nfts[i].id, "");
+            } else {
+                IERC1155(offer.nfts[i].addr).safeTransferFrom(from, to, offer.nfts[i].id, offer.nfts[i].amount, "");
+            }
         }
         for (uint256 i=0; i < offer.coins.length; i++) {
-            IERC20(offer.coins[i].addr).safeTransferFrom(from, to, offer.coins[i].amount);
+            IERC20(offer.coins[i].addr).safeTransfer(to, offer.coins[i].amount);
         }
     }
 
-    function transferOne(Offer memory from, Offer memory to) internal virtual {
+    function transferNative(Offer memory from, Offer memory to) internal virtual {
         if (from.native != 0) {
             _native -= from.native;
             uint native = from.native;
             from.native = 0;
             to.addr.transfer(native);
         }
-    }
-
-    function onERC721Received(
-        address operator,
-        address from,
-        uint256 tokenId,
-        bytes calldata data
-    ) external pure override returns (bytes4) {
-        return bytes4(keccak256("onERC721Received(address,address,uint256,bytes)"));
     }
 }
