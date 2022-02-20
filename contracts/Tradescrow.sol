@@ -209,11 +209,11 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
             _swaps[swapId].initiator.addr == msg.sender || _swaps[swapId].target.addr == msg.sender,
             "Tradescrow: Can't cancel swap, must be swap participant"
         );
-        // return initiator NFTs
+        // return initiator assets
         safeMultipleTransfersFrom(address(this), _swaps[swapId].initiator.addr, _swaps[swapId].initiator);
 
         if (checkEmpty(_swaps[swapId].target) == FALSEINT) {
-            // return second user NFTs
+            // return target assets
             safeMultipleTransfersFrom(address(this), _swaps[swapId].target.addr, _swaps[swapId].target);
         }
 

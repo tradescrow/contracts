@@ -10,7 +10,7 @@ Prerequisites
 To begin  
 - npm install
 - npx hardhat compile
-- npx hardhat run --network harmony scripts/deployContract.js  
+- npx hardhat run --network harmony scripts/deployTradescrow.js  
 
 > Record the output of the deployed smart contract address, this will be used for verification
 

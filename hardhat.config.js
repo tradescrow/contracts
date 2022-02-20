@@ -36,5 +36,10 @@ module.exports = {
       url: process.env.PRIVATE_RPC_URL,
       accounts: [process.env.PRIVATE_KEY]
     },
-  }
+  },
+    etherscan: {
+        apiKey: {
+            harmony: 'your API key'
+        }
+    }
 };
