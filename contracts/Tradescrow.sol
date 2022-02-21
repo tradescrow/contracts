@@ -10,27 +10,26 @@ import "@openzeppelin/contracts/token/ERC1155/IERC1155.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/security/Pausable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/Counters.sol";
 
 /**
-* @title Trade & Escrow v1.1.0
+* @title Trade & Escrow v1.2.0
 * @author @DirtyCajunRice
 */
 contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155Holder {
 
     // Use SafeERC20 for best practice
     using SafeERC20 for IERC20;
-
     // Counter to separate swaps
-    uint256 private _swapsCounter;
-    // Native asset temporary storage - in wei
+    using Counters for Counters.Counter;
+    Counters.Counter private _swapsCounter;
+    // Native asset locked temporary storage - in wei
     uint256 private _native;
-
+    // Native asset fee storage - in wei
+    uint256 public fee;
     // uint256 booleans to save the boolean conversion gas cost
     uint256 private constant TRUEINT = 1;
     uint256 private constant FALSEINT = 2;
-
-    // Native asset fee storage - in wei
-    uint256 public fee;
 
     // Storage mapping for swaps
     mapping (uint256 => Swap) private _swaps;
@@ -60,16 +59,18 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
     struct Swap {
         Offer initiator;
         Offer target;
+        uint256 open;
     }
 
     event SwapProposed(address indexed from, address indexed to, uint256 indexed swapId, Offer);
     event SwapInitiated(address indexed from, address indexed to, uint256 indexed swapId, Offer);
     event SwapExecuted(address indexed from, address indexed to, uint256 indexed swapId);
     event SwapCancelled(address indexed cancelledBy, uint256 indexed swapId);
+    event SwapClosed(uint256 indexed swapId);
     event AppFeeChanged(uint256 fee);
 
     // Sets the initial fee and assigns ownership
-    constructor(uint256 initialAppFee, address contractOwnerAddress) {
+    constructor(uint256 initialAppFee, address payable contractOwnerAddress) {
         fee = initialAppFee;
         super.transferOwnership(contractOwnerAddress);
     }
@@ -96,15 +97,16 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
     *
     * @return swapId ID of the new swap
     */
-    function proposeSwap(address target, Offer memory offer)
+    function proposeSwap(address payable target, Offer memory offer)
     external payable nonReentrant chargeAppFee whenNotPaused returns(uint256) {
-        _swapsCounter += 1;
+        requireNotEmpty(offer);
+        _swapsCounter.increment();
 
-        safeMultipleTransfersFrom(msg.sender, address(this), offer);
+        safeMultipleTransfersFrom(payable(msg.sender), address(this), offer);
 
-        Swap storage swap = _swaps[_swapsCounter];
+        Swap storage swap = _swaps[_swapsCounter.current()];
 
-
+        swap.open = TRUEINT;
         swap.initiator.addr = payable(msg.sender);
         for (uint256 i=0; i < offer.nfts.length; i++) {
             swap.initiator.nfts.push(offer.nfts[i]);
@@ -116,11 +118,11 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
             swap.initiator.native = msg.value - fee;
             _native += swap.initiator.native;
         }
-        swap.target.addr = payable(target);
+        swap.target.addr = target;
 
-        emit SwapProposed(msg.sender, target, _swapsCounter, offer);
+        emit SwapProposed(msg.sender, target, _swapsCounter.current(), offer);
 
-        return _swapsCounter;
+        return _swapsCounter.current();
     }
 
     /**
@@ -143,14 +145,15 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
             _swaps[swapId].target.coins.length == 0,
             "Tradescrow: swap already initiated"
         );
+        require(_swaps[swapId].open == TRUEINT, "Tradescrow: Swap closed. Only user cancel enabled");
+        requireNotEmpty(offer);
 
         safeMultipleTransfersFrom(
-            msg.sender,
+            payable(msg.sender),
             address(this),
             offer
         );
 
-        _swaps[swapId].target.addr = payable(msg.sender);
         for (uint256 i=0; i < offer.nfts.length; i++) {
             _swaps[swapId].target.nfts.push(offer.nfts[i]);
         }
@@ -181,8 +184,9 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
     */
     function acceptSwap(uint256 swapId) external nonReentrant whenNotPaused {
         onlyInitiator(swapId);
-        checkEmpty(_swaps[swapId].initiator);
-        checkEmpty(_swaps[swapId].target);
+        require(_swaps[swapId].open == TRUEINT, "Tradescrow: Swap closed. Only user cancel enabled");
+        requireNotEmpty(_swaps[swapId].initiator);
+        requireNotEmpty(_swaps[swapId].target);
 
         // transfer NFTs from escrow to initiator
         safeMultipleTransfersFrom(address(this), _swaps[swapId].initiator.addr, _swaps[swapId].target);
@@ -209,20 +213,25 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
             _swaps[swapId].initiator.addr == msg.sender || _swaps[swapId].target.addr == msg.sender,
             "Tradescrow: Can't cancel swap, must be swap participant"
         );
-        // return initiator assets
-        safeMultipleTransfersFrom(address(this), _swaps[swapId].initiator.addr, _swaps[swapId].initiator);
 
-        if (checkEmpty(_swaps[swapId].target) == FALSEINT) {
-            // return target assets
+        _swaps[swapId].open = FALSEINT;
+
+        if (_swaps[swapId].initiator.addr == msg.sender) {
+            safeMultipleTransfersFrom(address(this), _swaps[swapId].initiator.addr, _swaps[swapId].initiator);
+            transferNative(_swaps[swapId].initiator, _swaps[swapId].initiator);
+            wipeOffer(_swaps[swapId].initiator);
+        } else if (_swaps[swapId].target.addr == msg.sender) {
             safeMultipleTransfersFrom(address(this), _swaps[swapId].target.addr, _swaps[swapId].target);
+            transferNative(_swaps[swapId].target, _swaps[swapId].target);
+            wipeOffer(_swaps[swapId].target);
         }
-
-        transferNative(_swaps[swapId].initiator, _swaps[swapId].initiator);
-        transferNative(_swaps[swapId].target, _swaps[swapId].target);
 
         emit SwapCancelled(msg.sender, swapId);
 
-        delete _swaps[swapId];
+        if (checkEmpty(_swaps[swapId].initiator) == TRUEINT && checkEmpty(_swaps[swapId].target) == TRUEINT) {
+            emit SwapClosed(swapId);
+            delete _swaps[swapId];
+        }
     }
 
     // External Owner Functions
@@ -238,16 +247,26 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
         emit AppFeeChanged(newFee);
     }
 
+    function Pause() external nonReentrant onlyOwner {
+        _pause();
+    }
+
+    function Unpause() external nonReentrant onlyOwner {
+        _unpause();
+    }
+
     /**
     * @notice Withdraw accrued fees from the contract to an address
-    * @dev Can only be called by the contract owner
+    * @dev Can only be called by the contract owner, and always leaves 1e18 native for gas
     *
     * @param recipient Ox address of the recipient
     */
     function withdrawFees(address payable recipient) external nonReentrant onlyOwner {
         require(recipient != address(0), "Tradescrow: transfer to the zero address");
 
-        recipient.transfer((address(this).balance - _native));
+        require(address(this).balance - _native - 1 ether >= 0, "Tradescrow: No available fees");
+
+        recipient.transfer(address(this).balance - _native - 1 ether);
     }
 
     // Internal Functions
@@ -266,18 +285,24 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
         );
     }
 
-    function requireCheckEmpty(Offer memory offer) internal virtual {
+    function requireNotEmpty(Offer memory offer) internal virtual {
         require(FALSEINT == checkEmpty(offer),
-            "Tradescrow: Can't accept swap, participant didn't add assets"
+            "Tradescrow: Can't accept offer, participant didn't add assets"
         );
     }
 
     function checkEmpty(Offer memory offer) internal virtual returns(uint256) {
         uint256 empty = FALSEINT;
-        if (offer.nfts.length != 0 || offer.coins.length != 0 || offer.native > 0) {
+        if (offer.nfts.length != 0 || offer.coins.length != 0 || offer.native >= 0) {
             empty = TRUEINT;
         }
         return empty;
+    }
+
+    function wipeOffer(Offer storage offer) internal virtual {
+        delete offer.coins;
+        delete offer.nfts;
+        offer.native = 0;
     }
 
     function safeMultipleTransfersFrom(address from, address to, Offer memory offer) internal virtual {
@@ -297,8 +322,8 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
         }
     }
 
-    function transferNative(Offer memory from, Offer memory to) internal virtual {
-        if (from.native != 0) {
+    function transferNative(Offer storage from, Offer storage to) internal virtual {
+        if (from.native > 0) {
             _native -= from.native;
             uint native = from.native;
             from.native = 0;

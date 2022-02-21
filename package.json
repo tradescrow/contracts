@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "npx hardhat compile",
+    "deploy:tradescrow": "npx hardhat run --network harmony scripts/deployTradescrow.js"
   },
   "author": "",
   "license": "ISC",

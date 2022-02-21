@@ -1,5 +1,4 @@
-const { ethers } = require("hardhat")
-const { hre } = require("@nomiclabs/hardhat-etherscan")
+const { hre, ethers } = require("hardhat")
 require("dotenv").config()
 
 async function deploy(name, args) {
