@@ -139,10 +139,7 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
     */
     function initiateSwap(uint256 swapId, Offer memory offer) external payable nonReentrant chargeAppFee whenNotPaused {
         onlyTarget(swapId);
-        require(
-            _swaps[swapId].target.native == 0 &&
-            _swaps[swapId].target.nfts.length == 0 &&
-            _swaps[swapId].target.coins.length == 0,
+        require(isEmpty(_swaps[swapId].target) == TRUEINT,
             "Tradescrow: swap already initiated"
         );
         require(_swaps[swapId].open == TRUEINT, "Tradescrow: Swap closed. Only user cancel enabled");
@@ -228,7 +225,7 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
 
         emit SwapCancelled(msg.sender, swapId);
 
-        if (checkEmpty(_swaps[swapId].initiator) == TRUEINT && checkEmpty(_swaps[swapId].target) == TRUEINT) {
+        if (isEmpty(_swaps[swapId].initiator) == TRUEINT && isEmpty(_swaps[swapId].target) == TRUEINT) {
             emit SwapClosed(swapId);
             delete _swaps[swapId];
         }
@@ -285,15 +282,29 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
         );
     }
 
+    function requireEmpty(Offer memory offer) internal virtual {
+        require(FALSEINT == isNotEmpty(offer),
+            "Tradescrow: Assets exist"
+        );
+    }
+
     function requireNotEmpty(Offer memory offer) internal virtual {
-        require(FALSEINT == checkEmpty(offer),
+        require(TRUEINT == isNotEmpty(offer),
             "Tradescrow: Can't accept offer, participant didn't add assets"
         );
     }
 
-    function checkEmpty(Offer memory offer) internal virtual returns(uint256) {
+    function isNotEmpty(Offer memory offer) internal virtual returns(uint256) {
         uint256 empty = FALSEINT;
         if (offer.nfts.length != 0 || offer.coins.length != 0 || offer.native >= 0) {
+            empty = TRUEINT;
+        }
+        return empty;
+    }
+
+    function isEmpty(Offer memory offer) internal virtual returns(uint256) {
+        uint256 empty = FALSEINT;
+        if (offer.nfts.length == 0 && offer.coins.length == 0 && offer.native == 0) {
             empty = TRUEINT;
         }
         return empty;

@@ -1,4 +1,5 @@
-const { hre, ethers } = require("hardhat")
+const hre = require("hardhat");
+const { ethers } = require("hardhat")
 require("dotenv").config()
 
 async function deploy(name, args) {
