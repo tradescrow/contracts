@@ -36,10 +36,16 @@ module.exports = {
       url: process.env.PRIVATE_RPC_URL,
       accounts: [process.env.PRIVATE_KEY]
     },
+    avalanche: {
+      url: 'https://api.avax.network/ext/bc/C/rpc',
+      chainId: 43114,
+      accounts: [process.env.PRIVATE_KEY]
+    }
   },
     etherscan: {
         apiKey: {
-            harmony: 'your API key'
+          harmony: 'your API key',
+          avalanche: process.env.SNOWTRACE_API_KEY
         }
     }
 };
