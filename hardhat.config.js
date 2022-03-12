@@ -40,12 +40,24 @@ module.exports = {
       url: 'https://api.avax.network/ext/bc/C/rpc',
       chainId: 43114,
       accounts: [process.env.PRIVATE_KEY]
+    },
+    fantom: {
+      url: 'https://rpc.ftm.tools',
+      chainId: 250,
+      accounts: [process.env.PRIVATE_KEY]
+    },
+    polygon: {
+      url: 'https://polygon-rpc.com',
+      chainId: 137,
+      accounts: [process.env.PRIVATE_KEY]
     }
   },
     etherscan: {
         apiKey: {
-          harmony: 'your API key',
-          avalanche: process.env.SNOWTRACE_API_KEY
+          harmony: '',
+          avalanche: process.env.SNOWTRACE_API_KEY,
+          opera: process.env.FTMSCAN_API_KEY,
+          polygon: process.env.POLYGONSCAN_API_KEY
         }
     }
 };

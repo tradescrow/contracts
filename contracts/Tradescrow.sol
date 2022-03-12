@@ -13,7 +13,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
 /**
-* @title Trade & Escrow v1.2.0
+* @title Trade & Escrow v1.2.1
 * @author @DirtyCajunRice
 */
 contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155Holder {
@@ -62,8 +62,8 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
         uint256 open;
     }
 
-    event SwapProposed(address indexed from, address indexed to, uint256 indexed swapId, Offer);
-    event SwapInitiated(address indexed from, address indexed to, uint256 indexed swapId, Offer);
+    event SwapProposed(address indexed from, address indexed to, uint256 indexed swapId, Offer offer);
+    event SwapInitiated(address indexed from, address indexed to, uint256 indexed swapId, Offer offer);
     event SwapExecuted(address indexed from, address indexed to, uint256 indexed swapId);
     event SwapCancelled(address indexed cancelledBy, uint256 indexed swapId);
     event SwapClosed(uint256 indexed swapId);
@@ -244,11 +244,11 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
         emit AppFeeChanged(newFee);
     }
 
-    function Pause() external nonReentrant onlyOwner {
+    function pause() external nonReentrant onlyOwner {
         _pause();
     }
 
-    function Unpause() external nonReentrant onlyOwner {
+    function unpause() external nonReentrant onlyOwner {
         _unpause();
     }
 
