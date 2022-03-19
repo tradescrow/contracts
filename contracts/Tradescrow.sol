@@ -273,7 +273,7 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
     *
     * @param newFee Fee in wei
     */
-    function updateAppFee(uint newFee) external nonReentrant onlyOwner {
+    function updateAppFee(uint newFee) external onlyOwner {
         fee = newFee;
         emit AppFeeChanged(newFee);
     }
@@ -297,7 +297,7 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
 
         require(address(this).balance - _native > 0, "Tradescrow: No available fees");
 
-        recipient.transfer(address(this).balance - _native - 1 ether);
+        recipient.transfer(address(this).balance - _native);
     }
 
     // Internal Functions
