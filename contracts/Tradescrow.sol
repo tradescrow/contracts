@@ -13,7 +13,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
 /**
-* @title Trade & Escrow v1.2.1
+* @title Trade & Escrow v1.3.0
 * @author @DirtyCajunRice
 */
 contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155Holder {
@@ -87,9 +87,9 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
     * @notice Propose a new swap and pay the app fee
     *
     * @dev Step 1: User proposes a swap to another address that contains any combination of
-    *      NFTs (ERC721), coins (ERC20), and native asset (base coin ~= ETH). All proposed
-    *      assets are transferred to this contract and kept there until the swap is either
-    *      accepted or cancelled.
+    *      NFTs (ERC721/ERC1155), coins (ERC20), and native asset (base coin ~= ETH). All
+    *      proposed assets are transferred to this contract and kept there until the swap
+    *      is either accepted or cancelled.
     *
     * @param target Address that the initiating user wants to trade with
     * @param offer Struct that defines the proposed offer
@@ -101,7 +101,7 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
         requireNotEmpty(offer);
         _swapsCounter.increment();
 
-        safeMultipleTransfersFrom(payable(msg.sender), address(this), offer);
+        transferWithBalanceCheck(payable(msg.sender), address(this), offer);
 
         Swap storage swap = _swaps[_swapsCounter.current()];
 
@@ -129,26 +129,21 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
     *
     * @dev Step 2: Proposed user agrees to the the assets offered from the initiating
     *      party by responding with their offer that contains any combination of
-    *      NFTs (ERC721), coins (ERC20), and native asset (base coin ~= ETH). All proposed
-    *      assets are transferred to this contract and kept there until the swap is either
-    *      accepted or cancelled. This can only be called by a user with a pending swap.
+    *      NFTs (ERC721/ERC1155), coins (ERC20), and native asset (base coin ~= ETH).
+    *      All proposed assets are transferred to this contract and kept there until the
+    *      swap is either accepted or cancelled. This can only be called by a user with
+    *      a pending swap.
     *
     * @param swapId ID of the swap that the target user is invited to participate in
     * @param offer Struct that defines the proposed response offer
     */
     function initiateSwap(uint256 swapId, Offer memory offer) external payable nonReentrant chargeAppFee whenNotPaused {
         onlyTarget(swapId);
-        require(isEmpty(_swaps[swapId].target) == TRUEINT,
-            "Tradescrow: swap already initiated"
-        );
+        require(isEmpty(_swaps[swapId].target) == TRUEINT, "Tradescrow: swap already initiated");
         require(_swaps[swapId].open == TRUEINT, "Tradescrow: Swap closed. Only user cancel enabled");
         requireNotEmpty(offer);
 
-        safeMultipleTransfersFrom(
-            payable(msg.sender),
-            address(this),
-            offer
-        );
+        transferWithBalanceCheck(payable(msg.sender), address(this), offer);
 
         for (uint256 i=0; i < offer.nfts.length; i++) {
             _swaps[swapId].target.nfts.push(offer.nfts[i]);
@@ -253,7 +248,7 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
 
     /**
     * @notice Withdraw accrued fees from the contract to an address
-    * @dev Can only be called by the contract owner, and always leaves 1e18 native for gas
+    * @dev Can only be called by the contract owner
     *
     * @param recipient Ox address of the recipient
     */
@@ -313,6 +308,31 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
         delete offer.coins;
         delete offer.nfts;
         offer.native = 0;
+    }
+
+    function transferWithBalanceCheck(address from, address to, Offer memory offer) internal virtual {
+        for (uint256 i=0; i < offer.nfts.length; i++) {
+            if (offer.nfts[i].amount == 0) {
+                IERC721(offer.nfts[i].addr).safeTransferFrom(from, to, offer.nfts[i].id, "");
+            } else {
+                IERC1155 nft = IERC1155(offer.nfts[i].addr);
+                uint256 originalBalance = nft.balanceOf(address(this), offer.nfts[i].id);
+                nft.safeTransferFrom(from, to, offer.nfts[i].id, offer.nfts[i].amount, "");
+                uint256 newBalance = nft.balanceOf(address(this), offer.nfts[i].id);
+                if (newBalance - originalBalance != offer.nfts[i].amount) {
+                    offer.nfts[i].amount = newBalance - originalBalance;
+                }
+            }
+        }
+        for (uint256 i=0; i < offer.coins.length; i++) {
+            IERC20 coin = IERC20(offer.coins[i].addr);
+            uint256 originalBalance = coin.balanceOf(address(this));
+            coin.safeTransferFrom(from, to, offer.coins[i].amount);
+            uint256 newBalance = coin.balanceOf(address(this));
+            if (newBalance - originalBalance != offer.coins[i].amount) {
+                offer.coins[i].amount = newBalance - originalBalance;
+            }
+        }
     }
 
     function safeMultipleTransfersFrom(address from, address to, Offer memory offer) internal virtual {
