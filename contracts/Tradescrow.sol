@@ -204,7 +204,7 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
     *
     * @param swapId ID of the swap that the swap participants want to cancel
     */
-    function cancelSwap(uint256 swapId) external nonReentrant whenNotPaused {
+    function cancelSwap(uint256 swapId) external nonReentrant {
         require(
             _swaps[swapId].initiator.addr == msg.sender || _swaps[swapId].target.addr == msg.sender,
             "Tradescrow: Can't cancel swap, must be swap participant"
