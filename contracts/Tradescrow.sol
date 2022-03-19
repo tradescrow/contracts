@@ -69,10 +69,9 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
     event SwapClosed(uint256 indexed swapId);
     event AppFeeChanged(uint256 fee);
 
-    // Sets the initial fee and assigns ownership
-    constructor(uint256 initialAppFee, address payable contractOwnerAddress) {
-        fee = initialAppFee;
-        super.transferOwnership(contractOwnerAddress);
+    // Sets the initial fee
+    constructor() {
+        fee = 1 ether;
     }
 
     // Modifies requests that require a fee to take place
