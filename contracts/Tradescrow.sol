@@ -261,7 +261,7 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
     function withdrawFees(address payable recipient) external nonReentrant onlyOwner {
         require(recipient != address(0), "Tradescrow: transfer to the zero address");
 
-        require(address(this).balance - _native - 1 ether >= 0, "Tradescrow: No available fees");
+        require(address(this).balance - _native > 0, "Tradescrow: No available fees");
 
         recipient.transfer(address(this).balance - _native - 1 ether);
     }
