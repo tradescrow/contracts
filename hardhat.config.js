@@ -34,6 +34,12 @@ module.exports = {
   networks: {
     harmony: {
       url: process.env.PRIVATE_RPC_URL,
+      chainId: 1666600000,
+      accounts: [process.env.PRIVATE_KEY]
+    },
+    harmonyTest: {
+      url: 'https://api.s0.b.hmny.io',
+      chainId: 1666700000,
       accounts: [process.env.PRIVATE_KEY]
     },
     avalanche: {
@@ -54,7 +60,8 @@ module.exports = {
   },
     etherscan: {
         apiKey: {
-          harmony: '',
+          harmony: 'not needed',
+          harmonyTest: 'not needed',
           avalanche: process.env.SNOWTRACE_API_KEY,
           opera: process.env.FTMSCAN_API_KEY,
           polygon: process.env.POLYGONSCAN_API_KEY
