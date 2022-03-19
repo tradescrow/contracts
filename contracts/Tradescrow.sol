@@ -62,10 +62,10 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
         uint256 open;
     }
 
-    event SwapProposed(address indexed from, address indexed to, uint256 indexed swapId, Offer offer);
-    event SwapInitiated(address indexed from, address indexed to, uint256 indexed swapId, Offer offer);
+    event SwapProposed(address indexed from, address indexed to, uint256 indexed swapId);
+    event SwapInitiated(address indexed from, address indexed to, uint256 indexed swapId);
     event SwapExecuted(address indexed from, address indexed to, uint256 indexed swapId);
-    event SwapCancelled(address indexed cancelledBy, uint256 indexed swapId);
+    event SwapCancelled(address indexed from, uint256 indexed swapId);
     event SwapClosed(uint256 indexed swapId);
     event AppFeeChanged(uint256 fee);
 
@@ -119,7 +119,7 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
         }
         swap.target.addr = target;
 
-        emit SwapProposed(msg.sender, target, _swapsCounter.current(), offer);
+        emit SwapProposed(msg.sender, target, _swapsCounter.current());
 
         return _swapsCounter.current();
     }
@@ -156,12 +156,7 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
             _native += _swaps[swapId].target.native;
         }
 
-        emit SwapInitiated(
-            msg.sender,
-            _swaps[swapId].initiator.addr,
-            swapId,
-            offer
-        );
+        emit SwapInitiated(msg.sender, _swaps[swapId].initiator.addr, swapId);
     }
 
     /**
@@ -222,6 +217,51 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
         if (isEmpty(_swaps[swapId].initiator) == TRUEINT && isEmpty(_swaps[swapId].target) == TRUEINT) {
             emit SwapClosed(swapId);
             delete _swaps[swapId];
+        }
+    }
+
+    /**
+    * @notice Get offer data for a swap in a return of many arrays
+    * @dev Returns offer data in a way compatible with theGraph
+    *
+    * @param swapId ID of the swap
+    * @param participant Numeric identifier. 0 for initiator, 1 for target
+    */
+    function getOfferBySwapId(uint256 swapId, uint256 participant) external view
+    returns(
+        address addr,
+        uint256 native,
+        address[] memory coinAddresses,
+        uint256[] memory coinAmounts,
+        address[] memory nftAddresses,
+        uint256[] memory nftAmounts,
+        uint256[] memory nftIds
+    ) {
+        require(participant == 0 || participant == 1, "Tradescrow: Invalid participant identifier");
+        if (participant == 0) {
+            addr = _swaps[swapId].initiator.addr;
+            native = _swaps[swapId].initiator.native;
+            for (uint256 i=0; i < _swaps[swapId].initiator.coins.length; i++) {
+                coinAddresses[i] = _swaps[swapId].initiator.coins[i].addr;
+                coinAmounts[i] = _swaps[swapId].initiator.coins[i].amount;
+            }
+            for (uint256 i=0; i < _swaps[swapId].initiator.nfts.length; i++) {
+                nftAddresses[i] = _swaps[swapId].initiator.nfts[i].addr;
+                nftAmounts[i] = _swaps[swapId].initiator.nfts[i].amount;
+                nftIds[i] = _swaps[swapId].initiator.nfts[i].id;
+            }
+        } else {
+            addr = _swaps[swapId].target.addr;
+            native = _swaps[swapId].target.native;
+            for (uint256 i=0; i < _swaps[swapId].target.coins.length; i++) {
+                coinAddresses[i] = _swaps[swapId].target.coins[i].addr;
+                coinAmounts[i] = _swaps[swapId].target.coins[i].amount;
+            }
+            for (uint256 i=0; i < _swaps[swapId].target.nfts.length; i++) {
+                nftAddresses[i] = _swaps[swapId].target.nfts[i].addr;
+                nftAmounts[i] = _swaps[swapId].target.nfts[i].amount;
+                nftIds[i] = _swaps[swapId].target.nfts[i].id;
+            }
         }
     }
 
