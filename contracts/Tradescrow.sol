@@ -13,7 +13,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
 /**
-* @title Trade & Escrow v1.3.0
+* @title Trade & Escrow v1.3.1
 * @author @DirtyCajunRice
 */
 contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155Holder {
@@ -227,7 +227,7 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
     * @param swapId ID of the swap
     * @param participant Numeric identifier. 0 for initiator, 1 for target
     */
-    function getOfferBySwapId(uint256 swapId, uint256 participant) external view
+    function getOfferBySwapId(uint256 swapId, address participant) external view
     returns(
         address addr,
         uint256 native,
@@ -237,31 +237,36 @@ contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155
         uint256[] memory nftAmounts,
         uint256[] memory nftIds
     ) {
-        require(participant == 0 || participant == 1, "Tradescrow: Invalid participant identifier");
-        if (participant == 0) {
-            addr = _swaps[swapId].initiator.addr;
-            native = _swaps[swapId].initiator.native;
-            for (uint256 i=0; i < _swaps[swapId].initiator.coins.length; i++) {
-                coinAddresses[i] = _swaps[swapId].initiator.coins[i].addr;
-                coinAmounts[i] = _swaps[swapId].initiator.coins[i].amount;
-            }
-            for (uint256 i=0; i < _swaps[swapId].initiator.nfts.length; i++) {
-                nftAddresses[i] = _swaps[swapId].initiator.nfts[i].addr;
-                nftAmounts[i] = _swaps[swapId].initiator.nfts[i].amount;
-                nftIds[i] = _swaps[swapId].initiator.nfts[i].id;
-            }
+        require((0 < swapId) && (swapId <= _swapsCounter.current()), "Tradescrow: Invalid swapId");
+
+        Swap memory swap = _swaps[swapId];
+        Offer memory offer;
+
+        if (swap.initiator.addr == participant) {
+            offer = swap.initiator;
+        } else if (swap.target.addr == participant) {
+            offer = swap.target;
         } else {
-            addr = _swaps[swapId].target.addr;
-            native = _swaps[swapId].target.native;
-            for (uint256 i=0; i < _swaps[swapId].target.coins.length; i++) {
-                coinAddresses[i] = _swaps[swapId].target.coins[i].addr;
-                coinAmounts[i] = _swaps[swapId].target.coins[i].amount;
-            }
-            for (uint256 i=0; i < _swaps[swapId].target.nfts.length; i++) {
-                nftAddresses[i] = _swaps[swapId].target.nfts[i].addr;
-                nftAmounts[i] = _swaps[swapId].target.nfts[i].amount;
-                nftIds[i] = _swaps[swapId].target.nfts[i].id;
-            }
+            revert("Tradescrow: Invalid participant");
+        }
+
+        addr = offer.addr;
+        native = offer.native;
+
+        coinAddresses = new address[](offer.coins.length);
+        coinAmounts = new uint256[](offer.coins.length);
+        nftAddresses = new address[](offer.nfts.length);
+        nftAmounts = new uint256[](offer.nfts.length);
+        nftIds = new uint256[](offer.nfts.length);
+
+        for (uint256 i=0; i < offer.coins.length; i++) {
+            coinAddresses[i] = offer.coins[i].addr;
+            coinAmounts[i] = offer.coins[i].amount;
+        }
+        for (uint256 i=0; i < offer.nfts.length; i++) {
+            nftAddresses[i] = offer.nfts[i].addr;
+            nftAmounts[i] = offer.nfts[i].amount;
+            nftIds[i] = offer.nfts[i].id;
         }
     }
 

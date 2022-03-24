@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "D:\\Tradescrow\\contracts\\contracts\\Tradescrow.sol": {
-      "lastModificationDate": 1647723079062,
-      "contentHash": "649f7654ec4a4cff1186505bb59daa7b",
+      "lastModificationDate": 1648137975552,
+      "contentHash": "7a8684c0c90c4aee3b738be3f48c230f",
       "sourceName": "contracts/Tradescrow.sol",
       "solcConfig": {
         "version": "0.8.9",

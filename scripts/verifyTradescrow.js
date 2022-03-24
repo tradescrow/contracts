@@ -3,7 +3,7 @@ const hre = require("hardhat");
 async function main() {
   console.log("Verifying Tradescrow")
   await hre.run("verify:verify", {
-    address: "0x83FB618e5288dF061d687c78D821674D1100e18B"
+    address: "0xF8565d545a60DD5849b8C626404f96738da5bDfB"
   })
 }
 
