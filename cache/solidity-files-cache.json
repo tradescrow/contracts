@@ -1,52 +1,6 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "D:\\Tradescrow\\contracts\\contracts\\Tradescrow.sol": {
-      "lastModificationDate": 1648137975552,
-      "contentHash": "7a8684c0c90c4aee3b738be3f48c230f",
-      "sourceName": "contracts/Tradescrow.sol",
-      "solcConfig": {
-        "version": "0.8.9",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "storageLayout"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol",
-        "@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol",
-        "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol",
-        "@openzeppelin/contracts/security/ReentrancyGuard.sol",
-        "@openzeppelin/contracts/token/ERC1155/IERC1155.sol",
-        "@openzeppelin/contracts/token/ERC721/IERC721.sol",
-        "@openzeppelin/contracts/security/Pausable.sol",
-        "@openzeppelin/contracts/access/Ownable.sol",
-        "@openzeppelin/contracts/utils/Counters.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.9"
-      ],
-      "artifacts": [
-        "Tradescrow"
-      ]
-    },
     "D:\\Tradescrow\\contracts\\node_modules\\@openzeppelin\\contracts\\token\\ERC1155\\utils\\ERC1155Holder.sol": {
       "lastModificationDate": 1645313303999,
       "contentHash": "88079762e28b246888129028f757e047",
@@ -679,6 +633,3560 @@
       ],
       "artifacts": [
         "Context"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\contracts\\EnumerableTradeMap.sol": {
+      "lastModificationDate": 1678445507692,
+      "contentHash": "ba3732937f30d5b6352752b9abc53745",
+      "sourceName": "contracts/EnumerableTradeMap.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./TradeAssets.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "EnumerableTradeMap"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\contracts\\TradeAssets.sol": {
+      "lastModificationDate": 1678440544205,
+      "contentHash": "c661afde2f67a47df0d4af665fc906e2",
+      "sourceName": "contracts/TradeAssets.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@solidstate/contracts/utils/SafeERC20.sol",
+        "@solidstate/contracts/interfaces/IERC20.sol",
+        "@solidstate/contracts/interfaces/IERC1155.sol",
+        "@solidstate/contracts/interfaces/IERC721.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "TradeAssets"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\interfaces\\IERC1155.sol": {
+      "lastModificationDate": 1678408777479,
+      "contentHash": "9d00b6f5c0b4f67cb5f847290c20069d",
+      "sourceName": "@solidstate/contracts/interfaces/IERC1155.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC165.sol",
+        "./IERC1155Internal.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "IERC1155"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\interfaces\\IERC721.sol": {
+      "lastModificationDate": 1678408777602,
+      "contentHash": "e03ebe658449584c38c5d2214d0882c1",
+      "sourceName": "@solidstate/contracts/interfaces/IERC721.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC165.sol",
+        "./IERC721Internal.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "IERC721"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\utils\\SafeERC20.sol": {
+      "lastModificationDate": 1678408777711,
+      "contentHash": "b407418d5df105252db6e3532982bec6",
+      "sourceName": "@solidstate/contracts/utils/SafeERC20.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../interfaces/IERC20.sol",
+        "./AddressUtils.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "SafeERC20"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\interfaces\\IERC20.sol": {
+      "lastModificationDate": 1678408777558,
+      "contentHash": "045eda6ca229383c9344808755854d65",
+      "sourceName": "@solidstate/contracts/interfaces/IERC20.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC20Internal.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "IERC20"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\interfaces\\IERC165.sol": {
+      "lastModificationDate": 1678408777542,
+      "contentHash": "69b3ec8b394b10e4f828aa9cf2a04531",
+      "sourceName": "@solidstate/contracts/interfaces/IERC165.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC165Internal.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "IERC165"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\interfaces\\IERC1155Internal.sol": {
+      "lastModificationDate": 1678408777495,
+      "contentHash": "de7298436ede7da5150543172ab412b5",
+      "sourceName": "@solidstate/contracts/interfaces/IERC1155Internal.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "IERC1155Internal"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\interfaces\\IERC165Internal.sol": {
+      "lastModificationDate": 1678408777549,
+      "contentHash": "c6e6393127b064be4c5150cd13112765",
+      "sourceName": "@solidstate/contracts/interfaces/IERC165Internal.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC165Internal.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "IERC165Internal"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\interfaces\\IERC721Internal.sol": {
+      "lastModificationDate": 1678408777614,
+      "contentHash": "9879270087dda28bd7bc249cc7a49717",
+      "sourceName": "@solidstate/contracts/interfaces/IERC721Internal.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "IERC721Internal"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\utils\\AddressUtils.sol": {
+      "lastModificationDate": 1678408776783,
+      "contentHash": "ed9ca7d575dcdaac321baa215901dcbd",
+      "sourceName": "@solidstate/contracts/utils/AddressUtils.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./UintUtils.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "AddressUtils"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\interfaces\\IERC20Internal.sol": {
+      "lastModificationDate": 1678408777570,
+      "contentHash": "e9cb50619ded8c0650d2fa12f6153ab0",
+      "sourceName": "@solidstate/contracts/interfaces/IERC20Internal.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "IERC20Internal"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\utils\\UintUtils.sol": {
+      "lastModificationDate": 1678408777729,
+      "contentHash": "29ed272a1ff94be3a26f39ca7f64d1f9",
+      "sourceName": "@solidstate/contracts/utils/UintUtils.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "UintUtils"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\contracts\\TradescrowStorage.sol": {
+      "lastModificationDate": 1678443765794,
+      "contentHash": "3718e975ffe6d42d428b3579ae4152a2",
+      "sourceName": "contracts/TradescrowStorage.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@solidstate/contracts/token/ERC1155/enumerable/ERC1155EnumerableStorage.sol",
+        "@openzeppelin/contracts/utils/Counters.sol",
+        "./EnumerableTradeMap.sol",
+        "./TradeAssets.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "TradescrowStorage"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@openzeppelin\\contracts\\utils\\Counters.sol": {
+      "lastModificationDate": 1678408300187,
+      "contentHash": "74654e3ae5d7f39555055dfe244dab7a",
+      "sourceName": "@openzeppelin/contracts/utils/Counters.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Counters"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\token\\ERC1155\\enumerable\\ERC1155EnumerableStorage.sol": {
+      "lastModificationDate": 1678408777113,
+      "contentHash": "2ef69da6976d076da56efdbf96262d81",
+      "sourceName": "@solidstate/contracts/token/ERC1155/enumerable/ERC1155EnumerableStorage.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../../data/EnumerableSet.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "ERC1155EnumerableStorage"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\data\\EnumerableSet.sol": {
+      "lastModificationDate": 1678408777049,
+      "contentHash": "08d265ad27204a87276c35074ab611ce",
+      "sourceName": "@solidstate/contracts/data/EnumerableSet.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "EnumerableSet"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@openzeppelin\\contracts\\security\\Pausable.sol": {
+      "lastModificationDate": 1678408300462,
+      "contentHash": "25c8108f36fdd472bc78d4c4af240c11",
+      "sourceName": "@openzeppelin/contracts/security/Pausable.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/Context.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Pausable"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@openzeppelin\\contracts\\security\\ReentrancyGuard.sol": {
+      "lastModificationDate": 1678408300470,
+      "contentHash": "a8e2d1c30042f64ed89c9d4157eb6cb9",
+      "sourceName": "@openzeppelin/contracts/security/ReentrancyGuard.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ReentrancyGuard"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@openzeppelin\\contracts\\access\\Ownable.sol": {
+      "lastModificationDate": 1678408300456,
+      "contentHash": "e436cea06129be2c73cda4b1acc848b5",
+      "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/Context.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Ownable"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@openzeppelin\\contracts\\token\\ERC1155\\IERC1155.sol": {
+      "lastModificationDate": 1678408300368,
+      "contentHash": "d5a8f6e07ca38ec384856cfe9f08a867",
+      "sourceName": "@openzeppelin/contracts/token/ERC1155/IERC1155.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../utils/introspection/IERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC1155"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\utils\\ERC721Holder.sol": {
+      "lastModificationDate": 1678408300305,
+      "contentHash": "54062ff887823a306b33ea6494a220bc",
+      "sourceName": "@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../IERC721Receiver.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC721Holder"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\IERC721.sol": {
+      "lastModificationDate": 1678408300409,
+      "contentHash": "eb7e61db29f31d88b3c1cef1b063d338",
+      "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../utils/introspection/IERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC721"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@openzeppelin\\contracts\\token\\ERC20\\utils\\SafeERC20.sol": {
+      "lastModificationDate": 1678408300477,
+      "contentHash": "0320a90f714843ca19373ed143fc4466",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../IERC20.sol",
+        "../extensions/draft-IERC20Permit.sol",
+        "../../../utils/Address.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "SafeERC20"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@openzeppelin\\contracts\\token\\ERC1155\\utils\\ERC1155Holder.sol": {
+      "lastModificationDate": 1678408300238,
+      "contentHash": "88079762e28b246888129028f757e047",
+      "sourceName": "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Holder.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./ERC1155Receiver.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC1155Holder"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@openzeppelin\\contracts\\utils\\Context.sol": {
+      "lastModificationDate": 1678408300181,
+      "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
+      "sourceName": "@openzeppelin/contracts/utils/Context.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Context"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@openzeppelin\\contracts\\utils\\introspection\\IERC165.sol": {
+      "lastModificationDate": 1678408300383,
+      "contentHash": "03e6768535ac4da0e9756f1d8a4a018a",
+      "sourceName": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC165"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\IERC721Receiver.sol": {
+      "lastModificationDate": 1678408300417,
+      "contentHash": "c22d4395e33763de693fd440c6fd10e1",
+      "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC721Receiver"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@openzeppelin\\contracts\\utils\\Address.sol": {
+      "lastModificationDate": 1678408300159,
+      "contentHash": "f31ad6fc4bbf9c06203987220156a6ba",
+      "sourceName": "@openzeppelin/contracts/utils/Address.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.1"
+      ],
+      "artifacts": [
+        "Address"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@openzeppelin\\contracts\\token\\ERC20\\IERC20.sol": {
+      "lastModificationDate": 1678408300391,
+      "contentHash": "ad7c2d0af148c8f9f097d65deeb4da6b",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC20"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@openzeppelin\\contracts\\token\\ERC20\\extensions\\draft-IERC20Permit.sol": {
+      "lastModificationDate": 1678408300215,
+      "contentHash": "fb77f144244b9ab12533aa6ce85ef8c5",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/draft-IERC20Permit.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC20Permit"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@openzeppelin\\contracts\\token\\ERC1155\\utils\\ERC1155Receiver.sol": {
+      "lastModificationDate": 1678408300246,
+      "contentHash": "55b180cf664783e9a2baac20e82683fb",
+      "sourceName": "@openzeppelin/contracts/token/ERC1155/utils/ERC1155Receiver.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../IERC1155Receiver.sol",
+        "../../../utils/introspection/ERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC1155Receiver"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@openzeppelin\\contracts\\utils\\introspection\\ERC165.sol": {
+      "lastModificationDate": 1678408300253,
+      "contentHash": "0e7db055ce108f9da7bb6686a00287c0",
+      "sourceName": "@openzeppelin/contracts/utils/introspection/ERC165.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC165"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@openzeppelin\\contracts\\token\\ERC1155\\IERC1155Receiver.sol": {
+      "lastModificationDate": 1678408300373,
+      "contentHash": "9f8822b72fe2702979e40160cb6d9636",
+      "sourceName": "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../utils/introspection/IERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC1155Receiver"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\contracts\\TradescrowInternal.sol": {
+      "lastModificationDate": 1678442140535,
+      "contentHash": "8b1a489f1ac2b6c61a084dc341220c27",
+      "sourceName": "contracts/TradescrowInternal.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@solidstate/contracts/utils/SafeERC20.sol",
+        "@solidstate/contracts/token/ERC20/ISolidStateERC20.sol",
+        "./ITradescrowInternal.sol",
+        "./TradeAssets.sol",
+        "./ITradescrowEvents.sol",
+        "./TradescrowStorage.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "TradescrowInternal"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\contracts\\ITradescrowInternal.sol": {
+      "lastModificationDate": 1678431111321,
+      "contentHash": "55c2091ec434c3ba5a5d9b7cf794ed98",
+      "sourceName": "contracts/ITradescrowInternal.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ITradescrowInternal"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\contracts\\ITradescrowEvents.sol": {
+      "lastModificationDate": 1678442140585,
+      "contentHash": "105bbc7dc29e610507899085a5ff9862",
+      "sourceName": "contracts/ITradescrowEvents.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./TradeAssets.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ITradescrowEvents"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\token\\ERC20\\ISolidStateERC20.sol": {
+      "lastModificationDate": 1678408777651,
+      "contentHash": "76aec0d71cc26e6b00f21b5bb735e42a",
+      "sourceName": "@solidstate/contracts/token/ERC20/ISolidStateERC20.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./base/IERC20Base.sol",
+        "./extended/IERC20Extended.sol",
+        "./metadata/IERC20Metadata.sol",
+        "./permit/IERC20Permit.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "ISolidStateERC20"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\token\\ERC20\\base\\IERC20Base.sol": {
+      "lastModificationDate": 1678408777559,
+      "contentHash": "59a85b4772e7a23a459c7e41e138cd27",
+      "sourceName": "@solidstate/contracts/token/ERC20/base/IERC20Base.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../../interfaces/IERC20.sol",
+        "./IERC20BaseInternal.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "IERC20Base"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\token\\ERC20\\extended\\IERC20Extended.sol": {
+      "lastModificationDate": 1678408777564,
+      "contentHash": "8e7e781afec48e21653ee89d773e18fe",
+      "sourceName": "@solidstate/contracts/token/ERC20/extended/IERC20Extended.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC20ExtendedInternal.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "IERC20Extended"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\token\\ERC20\\permit\\IERC20Permit.sol": {
+      "lastModificationDate": 1678408777577,
+      "contentHash": "4d98073ea4cd74c1e175543b31655636",
+      "sourceName": "@solidstate/contracts/token/ERC20/permit/IERC20Permit.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../metadata/IERC20Metadata.sol",
+        "./IERC2612.sol",
+        "./IERC20PermitInternal.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "IERC20Permit"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\token\\ERC20\\metadata\\IERC20Metadata.sol": {
+      "lastModificationDate": 1678408777572,
+      "contentHash": "f7d1541143f053ab9e52abf5aacf2916",
+      "sourceName": "@solidstate/contracts/token/ERC20/metadata/IERC20Metadata.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC20MetadataInternal.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "IERC20Metadata"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\token\\ERC20\\base\\IERC20BaseInternal.sol": {
+      "lastModificationDate": 1678408777562,
+      "contentHash": "b24cc09fbf966f5c13043c1a8e2bbb93",
+      "sourceName": "@solidstate/contracts/token/ERC20/base/IERC20BaseInternal.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../../interfaces/IERC20Internal.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "IERC20BaseInternal"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\token\\ERC20\\extended\\IERC20ExtendedInternal.sol": {
+      "lastModificationDate": 1678408777567,
+      "contentHash": "34515138f3a7fd7430d3cbc65382d394",
+      "sourceName": "@solidstate/contracts/token/ERC20/extended/IERC20ExtendedInternal.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../base/IERC20BaseInternal.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "IERC20ExtendedInternal"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\token\\ERC20\\permit\\IERC20PermitInternal.sol": {
+      "lastModificationDate": 1678408777579,
+      "contentHash": "51639c2263b1d1684cdd6b8bea35dad1",
+      "sourceName": "@solidstate/contracts/token/ERC20/permit/IERC20PermitInternal.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC2612Internal.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "IERC20PermitInternal"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\token\\ERC20\\permit\\IERC2612.sol": {
+      "lastModificationDate": 1678408777581,
+      "contentHash": "c6b0533a24046302f1d200dbd8fc1e17",
+      "sourceName": "@solidstate/contracts/token/ERC20/permit/IERC2612.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC2612Internal.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "IERC2612"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\token\\ERC20\\metadata\\IERC20MetadataInternal.sol": {
+      "lastModificationDate": 1678408777575,
+      "contentHash": "970667ac5d606d31b4620f8c488b3384",
+      "sourceName": "@solidstate/contracts/token/ERC20/metadata/IERC20MetadataInternal.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "IERC20MetadataInternal"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\token\\ERC20\\permit\\IERC2612Internal.sol": {
+      "lastModificationDate": 1678408777584,
+      "contentHash": "2725f3a104d8b36864be83f0641e66d8",
+      "sourceName": "@solidstate/contracts/token/ERC20/permit/IERC2612Internal.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "IERC2612Internal"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\proxy\\diamond\\writable\\DiamondWritableInternal.sol": {
+      "lastModificationDate": 1678408776977,
+      "contentHash": "c28827967721940d5c88af02c874873d",
+      "sourceName": "@solidstate/contracts/proxy/diamond/writable/DiamondWritableInternal.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../../utils/AddressUtils.sol",
+        "../base/DiamondBaseStorage.sol",
+        "./IDiamondWritableInternal.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "DiamondWritableInternal"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\proxy\\diamond\\base\\DiamondBaseStorage.sol": {
+      "lastModificationDate": 1678408776870,
+      "contentHash": "2965bd0287e509917f1cd93360f2c97a",
+      "sourceName": "@solidstate/contracts/proxy/diamond/base/DiamondBaseStorage.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "DiamondBaseStorage"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\proxy\\diamond\\writable\\IDiamondWritableInternal.sol": {
+      "lastModificationDate": 1678408777458,
+      "contentHash": "ca737c6f934337bbd67382f22d6458db",
+      "sourceName": "@solidstate/contracts/proxy/diamond/writable/IDiamondWritableInternal.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "IDiamondWritableInternal"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\proxy\\diamond\\writable\\IDiamondWritable.sol": {
+      "lastModificationDate": 1678408777452,
+      "contentHash": "89b99f434d2490bfe6387f9d59a6be0d",
+      "sourceName": "@solidstate/contracts/proxy/diamond/writable/IDiamondWritable.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IDiamondWritableInternal.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "IDiamondWritable"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\proxy\\diamond\\writable\\DiamondWritable.sol": {
+      "lastModificationDate": 1678408776960,
+      "contentHash": "ce8aa8183a6115e473774685a448a998",
+      "sourceName": "@solidstate/contracts/proxy/diamond/writable/DiamondWritable.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../../access/ownable/OwnableInternal.sol",
+        "./IDiamondWritable.sol",
+        "./DiamondWritableInternal.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "DiamondWritable"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\access\\ownable\\OwnableInternal.sol": {
+      "lastModificationDate": 1678408777691,
+      "contentHash": "21bf2a3e0b20893c8a668088e4a0d32c",
+      "sourceName": "@solidstate/contracts/access/ownable/OwnableInternal.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../interfaces/IERC173.sol",
+        "../../utils/AddressUtils.sol",
+        "./IOwnableInternal.sol",
+        "./OwnableStorage.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "OwnableInternal"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\interfaces\\IERC173.sol": {
+      "lastModificationDate": 1678408777551,
+      "contentHash": "fb91cbea8b5c9a1a381c28baad1fe2c2",
+      "sourceName": "@solidstate/contracts/interfaces/IERC173.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC173Internal.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "IERC173"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\access\\ownable\\OwnableStorage.sol": {
+      "lastModificationDate": 1678408777694,
+      "contentHash": "eb5b8e5d7cc0a6a80ee2909b50ba0ee5",
+      "sourceName": "@solidstate/contracts/access/ownable/OwnableStorage.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "OwnableStorage"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\access\\ownable\\IOwnableInternal.sol": {
+      "lastModificationDate": 1678408777632,
+      "contentHash": "1b4485ee11e314b89acfd1553a2381ba",
+      "sourceName": "@solidstate/contracts/access/ownable/IOwnableInternal.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../interfaces/IERC173Internal.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "IOwnableInternal"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\interfaces\\IERC173Internal.sol": {
+      "lastModificationDate": 1678408777555,
+      "contentHash": "64e9b98233e6a0123e11ad7f0aad7590",
+      "sourceName": "@solidstate/contracts/interfaces/IERC173Internal.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "IERC173Internal"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\access\\ownable\\SafeOwnableInternal.sol": {
+      "lastModificationDate": 1678408777715,
+      "contentHash": "3180bb0a0d12a9485dafb8214f0d69df",
+      "sourceName": "@solidstate/contracts/access/ownable/SafeOwnableInternal.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./ISafeOwnableInternal.sol",
+        "./OwnableInternal.sol",
+        "./SafeOwnableStorage.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "SafeOwnableInternal"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\access\\ownable\\ISafeOwnableInternal.sol": {
+      "lastModificationDate": 1678408777639,
+      "contentHash": "5eaac42e298cc2023122e792048dd4ae",
+      "sourceName": "@solidstate/contracts/access/ownable/ISafeOwnableInternal.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IOwnableInternal.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "ISafeOwnableInternal"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\access\\ownable\\SafeOwnableStorage.sol": {
+      "lastModificationDate": 1678408777716,
+      "contentHash": "dbe4599f5ffc6cba32208ae471389c2e",
+      "sourceName": "@solidstate/contracts/access/ownable/SafeOwnableStorage.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "SafeOwnableStorage"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\access\\ownable\\IOwnable.sol": {
+      "lastModificationDate": 1678408777630,
+      "contentHash": "b3dfa912b96c3de89a3df204decdbbb2",
+      "sourceName": "@solidstate/contracts/access/ownable/IOwnable.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../interfaces/IERC173.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "IOwnable"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\access\\ownable\\ISafeOwnable.sol": {
+      "lastModificationDate": 1678408777637,
+      "contentHash": "b0ac79f9086579a9e0a01ebb2637bf45",
+      "sourceName": "@solidstate/contracts/access/ownable/ISafeOwnable.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IOwnable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "ISafeOwnable"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\proxy\\diamond\\ISolidStateDiamond.sol": {
+      "lastModificationDate": 1678408777641,
+      "contentHash": "b1c2e5ff3ca7994e920ce368fa5c8758",
+      "sourceName": "@solidstate/contracts/proxy/diamond/ISolidStateDiamond.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../access/ownable/ISafeOwnable.sol",
+        "../../interfaces/IERC165.sol",
+        "./base/IDiamondBase.sol",
+        "./fallback/IDiamondFallback.sol",
+        "./readable/IDiamondReadable.sol",
+        "./writable/IDiamondWritable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "ISolidStateDiamond"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\proxy\\diamond\\base\\IDiamondBase.sol": {
+      "lastModificationDate": 1678408777424,
+      "contentHash": "717cbaa9c4847141ea15c52715aca52b",
+      "sourceName": "@solidstate/contracts/proxy/diamond/base/IDiamondBase.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../IProxy.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "IDiamondBase"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\proxy\\diamond\\fallback\\IDiamondFallback.sol": {
+      "lastModificationDate": 1678408777438,
+      "contentHash": "714a0e462223b83bc4db3936e7312d62",
+      "sourceName": "@solidstate/contracts/proxy/diamond/fallback/IDiamondFallback.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../base/IDiamondBase.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "IDiamondFallback"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\proxy\\diamond\\readable\\IDiamondReadable.sol": {
+      "lastModificationDate": 1678408777445,
+      "contentHash": "8258ad09b35bf2c2dd7273966bab4194",
+      "sourceName": "@solidstate/contracts/proxy/diamond/readable/IDiamondReadable.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "IDiamondReadable"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\proxy\\IProxy.sol": {
+      "lastModificationDate": 1678408777635,
+      "contentHash": "d811c7cce73fa850c713b5e57fa4b20c",
+      "sourceName": "@solidstate/contracts/proxy/IProxy.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "IProxy"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\proxy\\diamond\\readable\\DiamondReadable.sol": {
+      "lastModificationDate": 1678408776926,
+      "contentHash": "9b4b3f2b66407e10f60341046c738f54",
+      "sourceName": "@solidstate/contracts/proxy/diamond/readable/DiamondReadable.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../base/DiamondBaseStorage.sol",
+        "./IDiamondReadable.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "DiamondReadable"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\proxy\\diamond\\fallback\\DiamondFallback.sol": {
+      "lastModificationDate": 1678408776905,
+      "contentHash": "934c492f97622483b2cd51226e84cd02",
+      "sourceName": "@solidstate/contracts/proxy/diamond/fallback/DiamondFallback.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../../access/ownable/OwnableInternal.sol",
+        "../base/DiamondBase.sol",
+        "../base/DiamondBaseStorage.sol",
+        "./IDiamondFallback.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "DiamondFallback"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\proxy\\diamond\\base\\DiamondBase.sol": {
+      "lastModificationDate": 1678408776859,
+      "contentHash": "76e87fce15cc2025a10722eef792e132",
+      "sourceName": "@solidstate/contracts/proxy/diamond/base/DiamondBase.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../Proxy.sol",
+        "./IDiamondBase.sol",
+        "./DiamondBaseStorage.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "DiamondBase"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\proxy\\Proxy.sol": {
+      "lastModificationDate": 1678408777702,
+      "contentHash": "f82f3475f2a381e0c85446513c6d0cc8",
+      "sourceName": "@solidstate/contracts/proxy/Proxy.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/AddressUtils.sol",
+        "./IProxy.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "Proxy"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\proxy\\diamond\\SolidStateDiamond.sol": {
+      "lastModificationDate": 1678408777718,
+      "contentHash": "d87b04c07845737bb9145635517921e1",
+      "sourceName": "@solidstate/contracts/proxy/diamond/SolidStateDiamond.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../access/ownable/Ownable.sol",
+        "../../access/ownable/SafeOwnable.sol",
+        "../../interfaces/IERC165.sol",
+        "../../interfaces/IERC173.sol",
+        "../../introspection/ERC165/base/ERC165Base.sol",
+        "./base/DiamondBase.sol",
+        "./fallback/DiamondFallback.sol",
+        "./readable/DiamondReadable.sol",
+        "./writable/DiamondWritable.sol",
+        "./ISolidStateDiamond.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "SolidStateDiamond"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\access\\ownable\\Ownable.sol": {
+      "lastModificationDate": 1678408777684,
+      "contentHash": "deabc129830c24b45ba89a7288ed7a85",
+      "sourceName": "@solidstate/contracts/access/ownable/Ownable.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../interfaces/IERC173.sol",
+        "./IOwnable.sol",
+        "./OwnableInternal.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "Ownable"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\access\\ownable\\SafeOwnable.sol": {
+      "lastModificationDate": 1678408777713,
+      "contentHash": "a607bdacb118f1ca7eae95514db7d8ce",
+      "sourceName": "@solidstate/contracts/access/ownable/SafeOwnable.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./Ownable.sol",
+        "./ISafeOwnable.sol",
+        "./OwnableInternal.sol",
+        "./SafeOwnableInternal.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "SafeOwnable"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\introspection\\ERC165\\base\\ERC165Base.sol": {
+      "lastModificationDate": 1678408777215,
+      "contentHash": "e93cc108775adb1706cb4b3f016a0301",
+      "sourceName": "@solidstate/contracts/introspection/ERC165/base/ERC165Base.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../../interfaces/IERC165.sol",
+        "./IERC165Base.sol",
+        "./ERC165BaseInternal.sol",
+        "./ERC165BaseStorage.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "ERC165Base"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\introspection\\ERC165\\base\\IERC165Base.sol": {
+      "lastModificationDate": 1678408777543,
+      "contentHash": "7dc765fedfe9eaccdcc7911e5bf01249",
+      "sourceName": "@solidstate/contracts/introspection/ERC165/base/IERC165Base.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../../interfaces/IERC165.sol",
+        "./IERC165BaseInternal.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC165Base"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\introspection\\ERC165\\base\\ERC165BaseStorage.sol": {
+      "lastModificationDate": 1678408777222,
+      "contentHash": "777c0039222a4cc2cefff2ba89763a3b",
+      "sourceName": "@solidstate/contracts/introspection/ERC165/base/ERC165BaseStorage.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "ERC165BaseStorage"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\introspection\\ERC165\\base\\ERC165BaseInternal.sol": {
+      "lastModificationDate": 1678408777218,
+      "contentHash": "b37ef514cd19f2b1bd77d3bb12decfef",
+      "sourceName": "@solidstate/contracts/introspection/ERC165/base/ERC165BaseInternal.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC165BaseInternal.sol",
+        "./ERC165BaseStorage.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "ERC165BaseInternal"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\introspection\\ERC165\\base\\IERC165BaseInternal.sol": {
+      "lastModificationDate": 1678408777546,
+      "contentHash": "233756325262fc284a4b1c73cf281df2",
+      "sourceName": "@solidstate/contracts/introspection/ERC165/base/IERC165BaseInternal.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../../interfaces/IERC165Internal.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC165BaseInternal"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\access\\access_control\\AccessControlStorage.sol": {
+      "lastModificationDate": 1678408776766,
+      "contentHash": "1521fb13a394b69bd88dd39c93140857",
+      "sourceName": "@solidstate/contracts/access/access_control/AccessControlStorage.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../data/EnumerableSet.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "AccessControlStorage"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\access\\access_control\\AccessControlInternal.sol": {
+      "lastModificationDate": 1678408776755,
+      "contentHash": "ab64dcede2fec2cb525deba8659fa27f",
+      "sourceName": "@solidstate/contracts/access/access_control/AccessControlInternal.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../data/EnumerableSet.sol",
+        "../../utils/AddressUtils.sol",
+        "../../utils/UintUtils.sol",
+        "./IAccessControlInternal.sol",
+        "./AccessControlStorage.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "AccessControlInternal"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\access\\access_control\\IAccessControlInternal.sol": {
+      "lastModificationDate": 1678408777421,
+      "contentHash": "8b99f93fdf9fcb15fc909e72918339b0",
+      "sourceName": "@solidstate/contracts/access/access_control/IAccessControlInternal.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IAccessControlInternal"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\access\\access_control\\IAccessControl.sol": {
+      "lastModificationDate": 1678408777418,
+      "contentHash": "c2975711fcc9cf615fc866d3b48a6c66",
+      "sourceName": "@solidstate/contracts/access/access_control/IAccessControl.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IAccessControlInternal.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IAccessControl"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\access\\access_control\\AccessControl.sol": {
+      "lastModificationDate": 1678408776742,
+      "contentHash": "ce509c13b2dd36a839f276fe81a2f180",
+      "sourceName": "@solidstate/contracts/access/access_control/AccessControl.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IAccessControl.sol",
+        "./AccessControlInternal.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "AccessControl"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\contracts\\TradescrowAdmin.sol": {
+      "lastModificationDate": 1678442390599,
+      "contentHash": "d05931049fa85d44e41487f59ead453a",
+      "sourceName": "contracts/TradescrowAdmin.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@solidstate/contracts/access/access_control/AccessControl.sol",
+        "@solidstate/contracts/security/Pausable.sol",
+        "./TradescrowInternal.sol",
+        "./TradeAssets.sol",
+        "./ITradescrowAdmin.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "TradescrowAdmin"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\contracts\\ITradescrowAdmin.sol": {
+      "lastModificationDate": 1678442210473,
+      "contentHash": "ae937b75d824d4f8c007bda113ad283e",
+      "sourceName": "contracts/ITradescrowAdmin.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ITradescrowAdmin"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\security\\Pausable.sol": {
+      "lastModificationDate": 1678408777696,
+      "contentHash": "9094c1dc3ee445c6bfe92b6b4c8aaf42",
+      "sourceName": "@solidstate/contracts/security/Pausable.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./PausableInternal.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "Pausable"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\security\\PausableInternal.sol": {
+      "lastModificationDate": 1678408777698,
+      "contentHash": "14a9a6776c730f9d40a22ae2a69ce512",
+      "sourceName": "@solidstate/contracts/security/PausableInternal.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./PausableStorage.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "PausableInternal"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\node_modules\\@solidstate\\contracts\\security\\PausableStorage.sol": {
+      "lastModificationDate": 1678408777700,
+      "contentHash": "885a741f1d67f78fae37ff98bf83043c",
+      "sourceName": "@solidstate/contracts/security/PausableStorage.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.8"
+      ],
+      "artifacts": [
+        "PausableStorage"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\contracts\\TradescrowWrite.sol": {
+      "lastModificationDate": 1678441294504,
+      "contentHash": "dcf9033a5b61e77982a0c0721822c92d",
+      "sourceName": "contracts/TradescrowWrite.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./TradescrowInternal.sol",
+        "./TradeAssets.sol",
+        "./ITradescrowWrite.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "TradescrowWrite"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\contracts\\ITradescrowWrite.sol": {
+      "lastModificationDate": 1678441294533,
+      "contentHash": "5a85a91845e4c6dc643cd1b2f94b0a72",
+      "sourceName": "contracts/ITradescrowWrite.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./TradeAssets.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ITradescrowWrite"
+      ]
+    },
+    "D:\\tradescrow\\contracts\\contracts\\Tradescrow.sol": {
+      "lastModificationDate": 1678445487624,
+      "contentHash": "0c4a4b73d74a5cf2ef130fb359b27587",
+      "sourceName": "contracts/Tradescrow.sol",
+      "solcConfig": {
+        "version": "0.8.17",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "storageLayout"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@solidstate/contracts/proxy/diamond/SolidStateDiamond.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Tradescrow"
       ]
     }
   }
