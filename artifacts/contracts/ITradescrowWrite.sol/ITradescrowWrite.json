@@ -1,0 +1,225 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "ITradescrowWrite",
+  "sourceName": "contracts/ITradescrowWrite.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tradeId",
+          "type": "uint256"
+        }
+      ],
+      "name": "acceptTrade",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tradeId",
+          "type": "uint256"
+        }
+      ],
+      "name": "cancelTrade",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "user",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "eth",
+                  "type": "uint256"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "address",
+                      "name": "_address",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "amount",
+                      "type": "uint256"
+                    }
+                  ],
+                  "internalType": "struct TradeAssets.ERC20Asset[]",
+                  "name": "erc20Assets",
+                  "type": "tuple[]"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "address",
+                      "name": "_address",
+                      "type": "address"
+                    },
+                    {
+                      "components": [
+                        {
+                          "internalType": "uint256",
+                          "name": "id",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "amount",
+                          "type": "uint256"
+                        }
+                      ],
+                      "internalType": "struct TradeAssets.ERC1155SingleAsset[]",
+                      "name": "assets",
+                      "type": "tuple[]"
+                    }
+                  ],
+                  "internalType": "struct TradeAssets.ERC1155Asset[]",
+                  "name": "erc1155Assets",
+                  "type": "tuple[]"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "address",
+                      "name": "_address",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "uint256[]",
+                      "name": "tokenIds",
+                      "type": "uint256[]"
+                    }
+                  ],
+                  "internalType": "struct TradeAssets.ERC721Asset[]",
+                  "name": "erc721Assets",
+                  "type": "tuple[]"
+                }
+              ],
+              "internalType": "struct TradeAssets.Assets",
+              "name": "offer",
+              "type": "tuple"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "user",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "eth",
+                  "type": "uint256"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "address",
+                      "name": "_address",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "amount",
+                      "type": "uint256"
+                    }
+                  ],
+                  "internalType": "struct TradeAssets.ERC20Asset[]",
+                  "name": "erc20Assets",
+                  "type": "tuple[]"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "address",
+                      "name": "_address",
+                      "type": "address"
+                    },
+                    {
+                      "components": [
+                        {
+                          "internalType": "uint256",
+                          "name": "id",
+                          "type": "uint256"
+                        },
+                        {
+                          "internalType": "uint256",
+                          "name": "amount",
+                          "type": "uint256"
+                        }
+                      ],
+                      "internalType": "struct TradeAssets.ERC1155SingleAsset[]",
+                      "name": "assets",
+                      "type": "tuple[]"
+                    }
+                  ],
+                  "internalType": "struct TradeAssets.ERC1155Asset[]",
+                  "name": "erc1155Assets",
+                  "type": "tuple[]"
+                },
+                {
+                  "components": [
+                    {
+                      "internalType": "address",
+                      "name": "_address",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "uint256[]",
+                      "name": "tokenIds",
+                      "type": "uint256[]"
+                    }
+                  ],
+                  "internalType": "struct TradeAssets.ERC721Asset[]",
+                  "name": "erc721Assets",
+                  "type": "tuple[]"
+                }
+              ],
+              "internalType": "struct TradeAssets.Assets",
+              "name": "desired",
+              "type": "tuple"
+            }
+          ],
+          "internalType": "struct TradeAssets.Trade",
+          "name": "trade",
+          "type": "tuple"
+        }
+      ],
+      "name": "createTrade",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tradeId",
+          "type": "uint256"
+        }
+      ],
+      "name": "rejectTrade",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
