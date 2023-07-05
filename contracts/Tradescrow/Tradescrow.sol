@@ -145,7 +145,7 @@ contract Tradescrow is
         }
     }
 
-    function getTrade(uint256 tradeId) external view returns (Trade) {
+    function getTrade(uint256 tradeId) external view returns (Trade memory) {
         if (!isValidTradeId(tradeId)) revert InvalidTradeId();
         return _trades[tradeId];
     }

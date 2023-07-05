@@ -104,3 +104,9 @@ dist
 .tern-port
 
 .idea/
+cache
+scripts
+wip
+artifacts/@openzeppelin
+artifacts/build-info
+artifacts/contracts/deprecated

@@ -16,7 +16,7 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 * @title Trade & Escrow v1.3.1
 * @author @DirtyCajunRice
 */
-contract Tradescrow is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155Holder {
+contract TradescrowOld is Ownable, ReentrancyGuard, Pausable, ERC721Holder, ERC1155Holder {
 
     // Use SafeERC20 for best practice
     using SafeERC20 for IERC20;

@@ -11,17 +11,26 @@
     "deploy:avalanche": "yarn hardhat --network avalanche deploy",
     "deploy:boba": "yarn hardhat --network boba deploy",
 
+    "upgrade:arbitrum": "yarn hardhat --network arbitrumOne upgrade",
     "upgrade:avalanche": "yarn hardhat --network avalanche upgrade",
     "upgrade:boba": "yarn hardhat --network boba upgrade",
 
+    "verify:arbitrum": "yarn hardhat --network arbitrumOne verify",
     "verify:avalanche": "yarn hardhat --network avalanche verify",
     "verify:boba": "yarn hardhat --network boba verify",
 
+    "tradescrow:arbitrum:deploy": "yarn deploy:arbitrum Tradescrow",
+    "tradescrow:arbitrum:upgrade": "yarn upgrade:arbitrum --name Tradescrow ",
+    "tradescrow:arbitrum:verify": "yarn verify:arbitrum 0x0423cC396ef9FB21B9De812859E9d4c6742ECE26",
+
     "tradescrow:avalanche:deploy": "yarn deploy:avalanche Tradescrow",
     "tradescrow:avalanche:upgrade": "yarn upgrade:avalanche --name Tradescrow ",
-    "tradescrow:avalanche:verify": "yarn verify:avalanche 0x2026774CE673aE5e2Cb2ac6Dec0b6941EAf5A838",
+    "tradescrow:avalanche:verify": "yarn verify:avalanche 0x0423cC396ef9FB21B9De812859E9d4c6742ECE26",
 
-    "tradescrow:arbitrum:deploy": "yarn deploy:arbitrum Tradescrow"
+    "tradescrow:boba:deploy": "yarn deploy:boba Tradescrow",
+    "tradescrow:boba:upgrade": "yarn upgrade:boba --name Tradescrow ",
+    "tradescrow:boba:verify": "yarn verify:boba 0x0423cC396ef9FB21B9De812859E9d4c6742ECE26"
+
   },
   "author": "dirtycajunrice",
   "license": "GPL-3.0",

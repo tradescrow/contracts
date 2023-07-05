@@ -92,8 +92,8 @@ module.exports = {
       accounts: [process.env.PRIVATE_KEY_2]
     },
     boba: {
-      url: 'https://avax.boba.network',
-      chainId: 43288,
+      url: 'https://mainnet.boba.network',
+      chainId: 288,
       accounts: [process.env.PRIVATE_KEY_2]
     }
   },
@@ -107,7 +107,7 @@ module.exports = {
       opera: process.env.FTMSCAN_API_KEY,
       avalanche: process.env.SNOWTRACE_API_KEY,
       cronos: process.env.CRONOSCAN_API_KEY,
-      boba: 'not needed'
+      boba: process.env.BOBASCAN_API_KEY
     },
     customChains: [
       {
