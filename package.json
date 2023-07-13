@@ -20,17 +20,16 @@
     "verify:boba": "yarn hardhat --network boba verify",
 
     "tradescrow:arbitrum:deploy": "yarn deploy:arbitrum Tradescrow",
-    "tradescrow:arbitrum:upgrade": "yarn upgrade:arbitrum --name Tradescrow ",
+    "tradescrow:arbitrum:upgrade": "yarn upgrade:arbitrum --name Tradescrow --address 0x0423cC396ef9FB21B9De812859E9d4c6742ECE26",
     "tradescrow:arbitrum:verify": "yarn verify:arbitrum 0x0423cC396ef9FB21B9De812859E9d4c6742ECE26",
 
     "tradescrow:avalanche:deploy": "yarn deploy:avalanche Tradescrow",
-    "tradescrow:avalanche:upgrade": "yarn upgrade:avalanche --name Tradescrow ",
+    "tradescrow:avalanche:upgrade": "yarn upgrade:avalanche --name Tradescrow --address 0x0423cC396ef9FB21B9De812859E9d4c6742ECE26",
     "tradescrow:avalanche:verify": "yarn verify:avalanche 0x0423cC396ef9FB21B9De812859E9d4c6742ECE26",
 
     "tradescrow:boba:deploy": "yarn deploy:boba Tradescrow",
-    "tradescrow:boba:upgrade": "yarn upgrade:boba --name Tradescrow ",
+    "tradescrow:boba:upgrade": "yarn upgrade:boba --name Tradescrow --address 0x0423cC396ef9FB21B9De812859E9d4c6742ECE26",
     "tradescrow:boba:verify": "yarn verify:boba 0x0423cC396ef9FB21B9De812859E9d4c6742ECE26"
-
   },
   "author": "dirtycajunrice",
   "license": "GPL-3.0",

@@ -26,21 +26,9 @@ abstract contract FeeManager is Initializable {
         _;
     }
 
-    modifier refundFee() {
-        if (_fee != 0) {
-            IERC20Upgradeable(_token).transferFrom(address(this), msg.sender, _fee / 4 * 3);
-            if (_treasury != address(0)) {
-                IERC20Upgradeable(_token).transferFrom(address(this), _treasury, _fee - (_fee / 4 * 3));
-                emit FeeReleased(_fee - (_fee / 4 * 3));
-            }
-            emit FeeRefunded(msg.sender, _fee / 4 * 3);
-        }
-        _;
-    }
-
     modifier releaseFee() {
         if (_fee != 0 && _treasury != address(0)) {
-            IERC20Upgradeable(_token).transferFrom(address(this), _treasury, _fee);
+            IERC20Upgradeable(_token).transfer( _treasury, _fee);
             emit FeeReleased(_fee);
         }
         _;
@@ -48,6 +36,17 @@ abstract contract FeeManager is Initializable {
 
     function __FeeManager_init() internal onlyInitializing {}
 
+
+    function refundFee(address party) internal {
+        if (_fee != 0) {
+            IERC20Upgradeable(_token).transfer(party, _fee / 4 * 3);
+            if (_treasury != address(0)) {
+                IERC20Upgradeable(_token).transfer(_treasury, _fee - (_fee / 4 * 3));
+                emit FeeReleased(_fee - (_fee / 4 * 3));
+            }
+            emit FeeRefunded(msg.sender, _fee / 4 * 3);
+        }
+    }
 
     function feeToken() external view returns (address) {
         return _token;

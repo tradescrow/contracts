@@ -130,14 +130,14 @@ contract Tradescrow is
     *
     * @param tradeId ID of the trade that the participant wants to cancel
     */
-    function cancelTrade(uint256 tradeId) external refundFee {
+    function cancelTrade(uint256 tradeId) external {
         if (!isValidTradeId(tradeId)) revert InvalidTradeId();
         Trade storage trade = _trades[tradeId];
         if (msg.sender != trade.counterparty && msg.sender != trade.party) revert NotTradeParticipant();
         if (trade.status != Status.Open) revert TradeClosed();
 
         trade.status = msg.sender == trade.party ? Status.Canceled : Status.Rejected;
-
+        refundFee(trade.party);
         if (msg.sender == trade.party) {
             emit TradeCanceled(msg.sender, tradeId);
         } else {
