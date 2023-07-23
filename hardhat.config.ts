@@ -1,122 +1,57 @@
-import "@nomiclabs/hardhat-waffle";
 import "@nomiclabs/hardhat-ethers";
-import '@openzeppelin/hardhat-upgrades';
 import "@nomiclabs/hardhat-etherscan";
+import "@nomiclabs/hardhat-waffle";
+import "@openzeppelin/hardhat-upgrades";
 
 import "dotenv/config";
 
 import "./tasks/deployUpgradeable";
-import "./tasks/upgrade";
 import "./tasks/getUpgradeDetails";
+import "./tasks/upgrade";
 
+const settings = {
+  optimizer: {
+    enabled: true,
+    runs: 200,
+  },
+};
+const accounts = [ process.env.PRIVATE_KEY_2 ];
 module.exports = {
   solidity: {
-    compilers: [
-      {
-        version: "0.8.19",
-        settings: {
-          optimizer: {
-            enabled: true,
-            runs: 2000
-          }
-        }
-      },
-      {
-        version: "0.8.9",
-        settings: {
-          optimizer: {
-            enabled: true,
-            runs: 200
-          }
-        }
-      },
-      {
-        version: "0.8.2",
-        settings: {
-          optimizer: {
-            enabled: true,
-            runs: 200
-          }
-        }
-      },
-      {
-        version: "0.6.0",
-        settings: {
-          optimizer: {
-            enabled: true,
-            runs: 200
-          }
-        }
-      }
-    ]
+    compilers: [ "8.19", "8.9", "8.2", "6.0" ].map(v => (
+      { version: `0.${v}`, settings }
+    )),
   },
   networks: {
-    harmony: {
-      url: process.env.RPC_URL,
-      chainId: 1666600000,
-      accounts: [process.env.PRIVATE_KEY_2]
-    },
-    harmonyTest: {
-      url: 'https://api.s0.b.hmny.io',
-      chainId: 1666700000,
-      accounts: [process.env.PRIVATE_KEY_2]
-    },
-    optimisticEthereum: {
-      url: 'https://mainnet.optimism.io',
-      chainId: 10,
-      accounts: [process.env.PRIVATE_KEY_2]
-    },
-    polygon: {
-      url: 'https://polygon-mainnet.public.blastapi.io',
-      chainId: 137,
-      accounts: [process.env.PRIVATE_KEY_2]
-    },
-    arbitrumOne: {
-      url: 'https://arb1.arbitrum.io/rpc',
-      chainId: 42161,
-      accounts: [process.env.PRIVATE_KEY_2]
-    },
-    opera: {
-      url: 'https://fantom-mainnet.public.blastapi.io',
-      chainId: 250,
-      accounts: [process.env.PRIVATE_KEY_2]
-    },
-    avalanche: {
-      url: process.env.AVALANCHE_RPC || 'https://ava-mainnet.public.blastapi.io/ext/bc/C/rpc',
-      chainId: 43114,
-      accounts: [process.env.PRIVATE_KEY_2]
-    },
-    cronos: {
-      url: 'https://evm.cronos.org',
-      chainId: 25,
-      accounts: [process.env.PRIVATE_KEY_2]
-    },
-    boba: {
-      url: 'https://mainnet.boba.network',
-      chainId: 288,
-      accounts: [process.env.PRIVATE_KEY_2]
-    }
+    mainnet: { url: `https://mainnet.infura.io/v3/${process.env.INFURA_API_KEY}`, chainId: 1, accounts },
+    harmony: { url: "https://api.harmony.one", chainId: 1666600000, accounts },
+    harmonyTest: { url: "https://api.s0.b.hmny.io", chainId: 1666700000, accounts },
+    optimisticEthereum: { url: "https://mainnet.optimism.io", chainId: 10, accounts },
+    polygon: { url: "https://polygon-mainnet.public.blastapi.io", chainId: 137, accounts },
+    arbitrumOne: { url: "https://arb1.arbitrum.io/rpc", chainId: 42161, accounts: accounts },
+    opera: { url: "https://fantom-mainnet.public.blastapi.io", chainId: 250, accounts },
+    avalanche: { url: "https://rpc.ankr.com/avalanche", chainId: 43114, accounts },
+    cronos: { url: "https://evm.cronos.org", chainId: 25, accounts },
+    boba: { url: "https://mainnet.boba.network", chainId: 288, accounts },
   },
   etherscan: {
     apiKey: {
-      harmony: 'not needed',
-      harmonyTest: 'not needed',
+      mainnet: process.env.ETHERSCAN_API_KEY,
+      harmony: "not needed",
+      harmonyTest: "not needed",
       optimisticEthereum: process.env.OPTIMISTIC_API_KEY,
       polygon: process.env.POLYGONSCAN_API_KEY,
       arbitrumOne: process.env.ARBISCAN_API_KEY,
       opera: process.env.FTMSCAN_API_KEY,
       avalanche: process.env.SNOWTRACE_API_KEY,
       cronos: process.env.CRONOSCAN_API_KEY,
-      boba: process.env.BOBASCAN_API_KEY
+      boba: process.env.BOBASCAN_API_KEY,
     },
     customChains: [
       {
         network: "cronos",
         chainId: 25,
-        urls: {
-          apiURL: "https://api.cronoscan.com/api",
-          browserURL: "https://cronoscan.com/",
-        },
+        urls: { apiURL: "https://api.cronoscan.com/api", browserURL: "https://cronoscan.com/" },
       },
       {
         network: "boba",
@@ -125,7 +60,7 @@ module.exports = {
           apiURL: "https://blockexplorer.avax.boba.network/api",
           browserURL: "https://blockexplorer.avax.boba.network",
         },
-      }
-    ]
-  }
+      },
+    ],
+  },
 };

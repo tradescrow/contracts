@@ -6,18 +6,21 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "yarn hardhat compile --show-stack-traces",
-
+    "deploy:mainnet": "yarn hardhat --network mainnet deploy",
     "deploy:arbitrum": "yarn hardhat --network arbitrumOne deploy",
     "deploy:avalanche": "yarn hardhat --network avalanche deploy",
     "deploy:boba": "yarn hardhat --network boba deploy",
-
+    "upgrade:mainnet": "yarn hardhat --network mainnet upgrade",
     "upgrade:arbitrum": "yarn hardhat --network arbitrumOne upgrade",
     "upgrade:avalanche": "yarn hardhat --network avalanche upgrade",
     "upgrade:boba": "yarn hardhat --network boba upgrade",
-
+    "verify:mainnet": "yarn hardhat --network mainnet verify",
     "verify:arbitrum": "yarn hardhat --network arbitrumOne verify",
     "verify:avalanche": "yarn hardhat --network avalanche verify",
     "verify:boba": "yarn hardhat --network boba verify",
+    "tradescrow:mainnet:deploy": "yarn deploy:mainnet Tradescrow",
+    "tradescrow:mainnet:upgrade": "yarn upgrade:mainnet --name Tradescrow --address 0x0423cC396ef9FB21B9De812859E9d4c6742ECE26",
+    "tradescrow:mainnet:verify": "yarn verify:mainnet 0x4094f921297d986a49dbad93995d935be23f1920",
 
     "tradescrow:arbitrum:deploy": "yarn deploy:arbitrum Tradescrow",
     "tradescrow:arbitrum:upgrade": "yarn upgrade:arbitrum --name Tradescrow --address 0x0423cC396ef9FB21B9De812859E9d4c6742ECE26",
