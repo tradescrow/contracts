@@ -33,6 +33,7 @@ module.exports = {
     avalanche: { url: "https://rpc.ankr.com/avalanche", chainId: 43114, accounts },
     cronos: { url: "https://evm.cronos.org", chainId: 25, accounts },
     boba: { url: "https://mainnet.boba.network", chainId: 288, accounts },
+    base: { url: "https://developer-access-mainnet.base.org", chainId: 8453, accounts },
   },
   etherscan: {
     apiKey: {
@@ -46,6 +47,7 @@ module.exports = {
       avalanche: process.env.SNOWTRACE_API_KEY,
       cronos: process.env.CRONOSCAN_API_KEY,
       boba: process.env.BOBASCAN_API_KEY,
+      base: process.env.BASESCAN_API_KEY,
     },
     customChains: [
       {
@@ -60,6 +62,11 @@ module.exports = {
           apiURL: "https://blockexplorer.avax.boba.network/api",
           browserURL: "https://blockexplorer.avax.boba.network",
         },
+      },
+      {
+        network: "base",
+        chainId: 8453,
+        urls: { apiURL: "https://api.basescan.org/api", browserURL: "https://basescan.org/" },
       },
     ],
   },
