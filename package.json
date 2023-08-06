@@ -4,22 +4,28 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "yarn hardhat compile --show-stack-traces",
+
     "deploy:mainnet": "yarn hardhat --network mainnet deploy",
     "deploy:arbitrum": "yarn hardhat --network arbitrumOne deploy",
     "deploy:avalanche": "yarn hardhat --network avalanche deploy",
     "deploy:boba": "yarn hardhat --network boba deploy",
+    "deploy:base": "yarn hardhat --network base deploy",
+
     "upgrade:mainnet": "yarn hardhat --network mainnet upgrade",
     "upgrade:arbitrum": "yarn hardhat --network arbitrumOne upgrade",
     "upgrade:avalanche": "yarn hardhat --network avalanche upgrade",
     "upgrade:boba": "yarn hardhat --network boba upgrade",
+    "upgrade:base": "yarn hardhat --network base upgrade",
+
     "verify:mainnet": "yarn hardhat --network mainnet verify",
     "verify:arbitrum": "yarn hardhat --network arbitrumOne verify",
     "verify:avalanche": "yarn hardhat --network avalanche verify",
     "verify:boba": "yarn hardhat --network boba verify",
+    "verify:base": "yarn hardhat --network base verify",
+
     "tradescrow:mainnet:deploy": "yarn deploy:mainnet Tradescrow",
-    "tradescrow:mainnet:upgrade": "yarn upgrade:mainnet --name Tradescrow --address 0x0423cC396ef9FB21B9De812859E9d4c6742ECE26",
+    "tradescrow:mainnet:upgrade": "yarn upgrade:mainnet --name Tradescrow --address 0x4094f921297d986a49dbad93995d935be23f1920",
     "tradescrow:mainnet:verify": "yarn verify:mainnet 0x4094f921297d986a49dbad93995d935be23f1920",
 
     "tradescrow:arbitrum:deploy": "yarn deploy:arbitrum Tradescrow",
@@ -32,7 +38,10 @@
 
     "tradescrow:boba:deploy": "yarn deploy:boba Tradescrow",
     "tradescrow:boba:upgrade": "yarn upgrade:boba --name Tradescrow --address 0x0423cC396ef9FB21B9De812859E9d4c6742ECE26",
-    "tradescrow:boba:verify": "yarn verify:boba 0x0423cC396ef9FB21B9De812859E9d4c6742ECE26"
+    "tradescrow:boba:verify": "yarn verify:boba 0x0423cC396ef9FB21B9De812859E9d4c6742ECE26",
+    "tradescrow:base:deploy": "yarn deploy:base Tradescrow",
+    "tradescrow:base:upgrade": "yarn upgrade:base --name Tradescrow --address 0x0423cC396ef9FB21B9De812859E9d4c6742ECE26",
+    "tradescrow:base:verify": "yarn verify:base 0x0423cC396ef9FB21B9De812859E9d4c6742ECE26"
   },
   "author": "dirtycajunrice",
   "license": "GPL-3.0",
