@@ -1,7 +1,7 @@
 import "@nomiclabs/hardhat-ethers";
-import '@openzeppelin/hardhat-upgrades';
+import "@openzeppelin/hardhat-upgrades";
 import { task } from "hardhat/config";
-import { setTimeout } from 'timers/promises';
+import { setTimeout } from "timers/promises";
 
 task("deploy", "Deploy an upgradeable contract with a transparent proxy")
   .addPositionalParam("name")
