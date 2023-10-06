@@ -1,0 +1,76 @@
+{
+  "1": {
+    "0x4094f921297d986a49dbad93995d935be23f1920": {
+      "name": "Tradescrow",
+      "type": "uups",
+      "impl": "0x0423cC396ef9FB21B9De812859E9d4c6742ECE26"
+    }
+  },
+  "10": {
+    "0x0423cC396ef9FB21B9De812859E9d4c6742ECE26": {
+      "name": "Tradescrow",
+      "type": "uups",
+      "impl": "0x048E52566Ed00cf840C5b3314a9cA1551A411De9"
+    }
+  },
+  "56": {
+    "0x0423cC396ef9FB21B9De812859E9d4c6742ECE26": {
+      "name": "Tradescrow",
+      "type": "uups",
+      "impl": "0x048E52566Ed00cf840C5b3314a9cA1551A411De9"
+    }
+  },
+  "137": {
+    "0x0423cC396ef9FB21B9De812859E9d4c6742ECE26": {
+      "name": "Tradescrow",
+      "type": "uups",
+      "impl": "0x048E52566Ed00cf840C5b3314a9cA1551A411De9"
+    }
+  },
+  "288": {
+    "0x4094f921297d986a49dbad93995d935be23f1920": {
+      "name": "Tradescrow",
+      "type": "static"
+    },
+    "0x4094f921297d986a49dbAD93995D935BE23F1920": {
+      "name": "Tradescrow",
+      "type": "uups",
+      "impl": "0x0423cC396ef9FB21B9De812859E9d4c6742ECE26"
+    }
+  },
+  "1101": {
+    "0x0423cC396ef9FB21B9De812859E9d4c6742ECE26": {
+      "name": "Tradescrow",
+      "type": "uups",
+      "impl": "0x920ec062ee2BAD5C8e99666a1986a78647A23658"
+    }
+  },
+  "8453": {
+    "0x0423cC396ef9FB21B9De812859E9d4c6742ECE26": {
+      "name": "Tradescrow",
+      "type": "uups",
+      "impl": "0x048E52566Ed00cf840C5b3314a9cA1551A411De9"
+    }
+  },
+  "42161": {
+    "0x0423cC396ef9FB21B9De812859E9d4c6742ECE26": {
+      "name": "Tradescrow",
+      "type": "uups",
+      "impl": "0x4094f921297d986a49dbAD93995D935BE23F1920"
+    }
+  },
+  "43114": {
+    "0x0423cC396ef9FB21B9De812859E9d4c6742ECE26": {
+      "name": "Tradescrow",
+      "type": "uups",
+      "impl": "0x643BcDc7800f87a20Bc27702c6A081EA5D5bb77E"
+    }
+  },
+  "53935": {
+    "0xEB635bf8E1fe02523D84EE497BE7C337546a781b": {
+      "name": "Tradescrow",
+      "type": "uups",
+      "impl": "0x6B34De6f2887caa3317D9069A3eF00362ABb936c"
+    }
+  }
+}

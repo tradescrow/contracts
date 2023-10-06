@@ -109,4 +109,4 @@ scripts
 wip
 artifacts/@openzeppelin
 artifacts/build-info
-artifacts/contracts/deprecated
+artifacts/contracts/lib/ERC1967Proxy.sol
