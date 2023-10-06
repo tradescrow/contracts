@@ -105,7 +105,6 @@ dist
 
 .idea/
 cache
-scripts
 wip
 artifacts/@openzeppelin
 artifacts/build-info

@@ -2,20 +2,13 @@
   "manifestVersion": "3.2",
   "proxies": [
     {
-      "address": "0xfAbE7c58F4084F7818CB1BA548Cd5D12cA5C45bf",
-      "txHash": "0xd7ea2c602cf6f27c93419ac1aed380b596850d9acca4de0ced5dbce779e4e154",
-      "kind": "uups"
-    },
-    {
       "address": "0x99C294C393d9ABF76a6AB5175e5d8eA300403f56",
-      "txHash": "0x44a9a57b73aa6f9bb3b1a57c99152fc1b6bfd0aa937495d6afcc1aff3c118102",
       "kind": "uups"
     }
   ],
   "impls": {
     "315d276a195d8bb516802043a0d36a7daeddf9b9e230a83c3aee08cb15a20ede": {
-      "address": "0x6B34De6f2887caa3317D9069A3eF00362ABb936c",
-      "txHash": "0x91d66e5f4aa9b6081277b0ea5401943e385282f6d5cf76d5192a0681d7a62d44",
+      "address": "0xdaeb191d069d0904e610f19A03b2C6474DAFEab8",
       "layout": {
         "solcVersion": "0.8.20",
         "storage": [
@@ -184,7 +177,7 @@
             "label": "_trades",
             "offset": 0,
             "slot": "501",
-            "type": "t_mapping(t_uint256,t_struct(Trade)6805_storage)",
+            "type": "t_mapping(t_uint256,t_struct(Trade)5486_storage)",
             "contract": "Tradescrow",
             "src": "contracts\\Tradescrow\\Tradescrow.sol:38"
           }
@@ -198,7 +191,7 @@
             "label": "bytes32[]",
             "numberOfBytes": "32"
           },
-          "t_array(t_struct(Asset)6789_storage)dyn_storage": {
+          "t_array(t_struct(Asset)5470_storage)dyn_storage": {
             "label": "struct Structs.Asset[]",
             "numberOfBytes": "32"
           },
@@ -222,7 +215,7 @@
             "label": "bytes32",
             "numberOfBytes": "32"
           },
-          "t_enum(AssetType)6774": {
+          "t_enum(AssetType)5455": {
             "label": "enum Structs.AssetType",
             "members": [
               "ERC20",
@@ -231,7 +224,7 @@
             ],
             "numberOfBytes": "1"
           },
-          "t_enum(Status)6779": {
+          "t_enum(Status)5460": {
             "label": "enum Structs.Status",
             "members": [
               "Open",
@@ -257,7 +250,7 @@
             "label": "mapping(bytes32 => uint256)",
             "numberOfBytes": "32"
           },
-          "t_mapping(t_uint256,t_struct(Trade)6805_storage)": {
+          "t_mapping(t_uint256,t_struct(Trade)5486_storage)": {
             "label": "mapping(uint256 => struct Structs.Trade)",
             "numberOfBytes": "32"
           },
@@ -273,7 +266,7 @@
             ],
             "numberOfBytes": "64"
           },
-          "t_struct(Asset)6789_storage": {
+          "t_struct(Asset)5470_storage": {
             "label": "struct Structs.Asset",
             "members": [
               {
@@ -296,7 +289,7 @@
               },
               {
                 "label": "assetType",
-                "type": "t_enum(AssetType)6774",
+                "type": "t_enum(AssetType)5455",
                 "offset": 0,
                 "slot": "3"
               }
@@ -351,12 +344,12 @@
             ],
             "numberOfBytes": "64"
           },
-          "t_struct(Trade)6805_storage": {
+          "t_struct(Trade)5486_storage": {
             "label": "struct Structs.Trade",
             "members": [
               {
                 "label": "status",
-                "type": "t_enum(Status)6779",
+                "type": "t_enum(Status)5460",
                 "offset": 0,
                 "slot": "0"
               },
@@ -374,13 +367,13 @@
               },
               {
                 "label": "partyAssets",
-                "type": "t_array(t_struct(Asset)6789_storage)dyn_storage",
+                "type": "t_array(t_struct(Asset)5470_storage)dyn_storage",
                 "offset": 0,
                 "slot": "2"
               },
               {
                 "label": "counterpartyAssets",
-                "type": "t_array(t_struct(Asset)6789_storage)dyn_storage",
+                "type": "t_array(t_struct(Asset)5470_storage)dyn_storage",
                 "offset": 0,
                 "slot": "3"
               }

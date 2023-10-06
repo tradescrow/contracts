@@ -67,10 +67,10 @@
     }
   },
   "53935": {
-    "0xEB635bf8E1fe02523D84EE497BE7C337546a781b": {
+    "0x99C294C393d9ABF76a6AB5175e5d8eA300403f56": {
       "name": "Tradescrow",
       "type": "uups",
-      "impl": "0x6B34De6f2887caa3317D9069A3eF00362ABb936c"
+      "impl": "0xdaeb191d069d0904e610f19A03b2C6474DAFEab8"
     }
   }
 }

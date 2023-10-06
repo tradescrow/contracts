@@ -99,7 +99,7 @@ const networkData = [
     urls: {
       rpc: `https://subnets.avax.network/defi-kingdoms/dfk-chain/rpc`,
       api: "https://api.avascan.info/v2/network/mainnet/evm/53935/etherscan",
-      browser: "https://avascan.info/blockchain/dfk/",
+      browser: "https://avascan.info/blockchain/dfk",
     },
     accounts: [ process.env.PRIVATE_KEY! ],
   },
