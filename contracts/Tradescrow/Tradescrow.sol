@@ -164,6 +164,7 @@ contract Tradescrow is
 
     function setFeeToken(address token) external onlyRole(DEFAULT_ADMIN_ROLE) {
         _setFeeToken(token);
+        _setFeeTokenSelfApproval();
     }
 
     function setFeeTreasury(address treasury) external onlyRole(DEFAULT_ADMIN_ROLE) {

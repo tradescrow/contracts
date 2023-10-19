@@ -62,8 +62,8 @@ const networkData = [
     chainId: 137,
     urls: {
       rpc: `https://polygon-mainnet.public.blastapi.io`,
-      api: "",
-      browser: "",
+      api: "https://api.polygonscan.com/api",
+      browser: "https://polygonscan.com/",
     },
   },
   {
