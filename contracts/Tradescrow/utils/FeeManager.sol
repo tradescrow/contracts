@@ -75,6 +75,14 @@ abstract contract FeeManager is Initializable {
         emit TreasuryUpdated(msg.sender, treasury);
     }
 
+    /**
+      * @notice Approve the fee token to be spent by this contract. This is an override added because companies like
+      * Circle use extremely outdated contracts that do not check for the match of from == msg.sender in transferFrom
+      * calls
+     */
+    function _setFeeTokenSelfApproval() internal {
+        IERC20Upgradeable(_token).approve(address(this), type(uint256).max);
+    }
 
     uint256[47] private __gap;
 }

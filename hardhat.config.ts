@@ -17,8 +17,8 @@ const networkData = [
     chainId: 1,
     urls: {
       rpc: `https://mainnet.infura.io/v3/${process.env.INFURA_API_KEY}`,
-      api: "",
-      browser: "",
+      api: "https://api.etherscan.io/api",
+      browser: "https://etherscan.io/",
     },
   },
   {
@@ -26,17 +26,17 @@ const networkData = [
     chainId: 42_161,
     urls: {
       rpc: `https://arb1.arbitrum.io/rpc`,
-      api: "",
-      browser: "",
+      api: "https://api.arbiscan.io/api",
+      browser: "https://arbiscan.io/",
     },
   },
   {
     name: "avalanche",
     chainId: 43_114,
     urls: {
-      rpc: `https://rpc.ankr.com/avalanche`,
-      api: "",
-      browser: "",
+      rpc: `https://api.avax.network/ext/bc/C/rpc`,
+      api: "https://api.snowtrace.io/api",
+      browser: "https://snowtrace.io",
     },
   },
   {
@@ -80,8 +80,8 @@ const networkData = [
     chainId: 10,
     urls: {
       rpc: `https://mainnet.optimism.io`,
-      api: "",
-      browser: "",
+      api: "https://api-optimistic.etherscan.io/api",
+      browser: "https://optimistic.etherscan.io/",
     },
   },
   {

@@ -16,7 +16,7 @@ import { IDCounter } from "./utils/IDCounter.sol";
 import { TradeLibrary } from "./libraries/TradeLibrary.sol";
 
 /**
-* @title Trade & Escrow v2.0.0
+* @title Trade & Escrow v2.0.1
 * @author @DirtyCajunRice
 */
 contract Tradescrow is
@@ -168,6 +168,10 @@ contract Tradescrow is
 
     function setFeeTreasury(address treasury) external onlyRole(DEFAULT_ADMIN_ROLE) {
         _setFeeTreasury(treasury);
+    }
+
+    function setFeeTokenSelfApproval() external onlyRole(DEFAULT_ADMIN_ROLE) {
+        _setFeeTokenSelfApproval();
     }
 
     function pause() external onlyRole(ADMIN_ROLE) {

@@ -3,10 +3,10 @@ import hre from 'hardhat';
 import { parseUnits } from "ethers";
 import "dotenv/config";
 
-const chainId = 53935;
+const chainId = 42161;
 const fee = 1; // in USDC
-const usdc = "0x3AD9DFE640E1A9Cc1D9B0948620820D975c3803a";
-const treasury = "0x4082e997Ec720A4894EFec53b0d9AabfeeA44cBE";
+const usdc = "0xaf88d065e77c8cC2239327C5EDb3A432268e5831";
+const treasury = "0x21D9Ff041F2d71f8767c0249069f7B8390048Ea3";
 
 const updateFee = async () => {
   if (hre.network.config.chainId !== chainId) {
