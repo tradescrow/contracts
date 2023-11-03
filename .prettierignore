@@ -1,0 +1,10 @@
+node_modules
+lib
+cache
+typechain-types
+artifacts
+.hardhat-tasks
+.openzeppelin
+scripts
+coverage
+out

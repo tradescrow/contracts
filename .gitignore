@@ -106,6 +106,5 @@ dist
 .idea/
 cache
 wip
-artifacts/@openzeppelin
-artifacts/build-info
-artifacts/contracts/lib/ERC1967Proxy.sol
+artifacts/
+typechain-types

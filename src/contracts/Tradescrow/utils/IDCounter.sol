@@ -1,15 +1,16 @@
 // SPDX-License-Identifier: BUSL-1.1
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-import "@openzeppelin/contracts-upgradeable/utils/CountersUpgradeable.sol";
+import {Initializable} from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+import {Counters} from "../libraries/Counters.sol";
 
 abstract contract IDCounter is Initializable {
-    using CountersUpgradeable for CountersUpgradeable.Counter;
+    using Counters for Counters.Counter;
 
-    CountersUpgradeable.Counter private _counter;
+    Counters.Counter private _counter;
 
-    function __IDCounter_init() internal onlyInitializing {
+    // solhint-disable-next-line func-name-mixedcase
+    function __idCounter_init() internal onlyInitializing {
         if (_counter.current() == 0) {
             _counter.increment();
         }
@@ -24,5 +25,5 @@ abstract contract IDCounter is Initializable {
         return id <= _counter.current();
     }
 
-    uint256[49] private __gap;
+    uint256[48] private __gap;
 }

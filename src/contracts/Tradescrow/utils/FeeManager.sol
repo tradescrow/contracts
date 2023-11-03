@@ -1,13 +1,10 @@
 // SPDX-License-Identifier: BUSL-1.1
 pragma solidity ^0.8.0;
 
-import { SafeERC20Upgradeable, IERC20Upgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol";
-import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+import {Initializable} from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 abstract contract FeeManager is Initializable {
-
-    using SafeERC20Upgradeable for IERC20Upgradeable;
-
     address private _treasury;
     address private _token;
     uint256 private _fee;
@@ -20,7 +17,7 @@ abstract contract FeeManager is Initializable {
 
     modifier chargeFee() {
         if (_fee != 0) {
-            IERC20Upgradeable(_token).transferFrom(msg.sender, address(this), _fee);
+            IERC20(_token).transferFrom(msg.sender, address(this), _fee);
             emit FeePaid(msg.sender, _fee);
         }
         _;
@@ -28,23 +25,23 @@ abstract contract FeeManager is Initializable {
 
     modifier releaseFee() {
         if (_fee != 0 && _treasury != address(0)) {
-            IERC20Upgradeable(_token).transfer( _treasury, _fee);
+            IERC20(_token).transfer(_treasury, _fee);
             emit FeeReleased(_fee);
         }
         _;
     }
 
+    // solhint-disable-next-line func-name-mixedcase, no-empty-blocks
     function __FeeManager_init() internal onlyInitializing {}
-
 
     function refundFee(address party) internal {
         if (_fee != 0) {
-            IERC20Upgradeable(_token).transfer(party, _fee / 4 * 3);
+            IERC20(_token).transfer(party, (_fee / 4) * 3);
             if (_treasury != address(0)) {
-                IERC20Upgradeable(_token).transfer(_treasury, _fee - (_fee / 4 * 3));
-                emit FeeReleased(_fee - (_fee / 4 * 3));
+                IERC20(_token).transfer(_treasury, _fee - ((_fee / 4) * 3));
+                emit FeeReleased(_fee - ((_fee / 4) * 3));
             }
-            emit FeeRefunded(msg.sender, _fee / 4 * 3);
+            emit FeeRefunded(msg.sender, (_fee / 4) * 3);
         }
     }
 
@@ -76,12 +73,12 @@ abstract contract FeeManager is Initializable {
     }
 
     /**
-      * @notice Approve the fee token to be spent by this contract. This is an override added because companies like
-      * Circle use extremely outdated contracts that do not check for the match of from == msg.sender in transferFrom
-      * calls
+     * @notice Approve the fee token to be spent by this contract. This is an override added because companies like
+     * Circle use extremely outdated contracts that do not check for the match of from == msg.sender in transferFrom
+     * calls
      */
     function _setFeeTokenSelfApproval() internal {
-        IERC20Upgradeable(_token).approve(address(this), type(uint256).max);
+        IERC20(_token).approve(address(this), type(uint256).max);
     }
 
     uint256[47] private __gap;

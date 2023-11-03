@@ -1,14 +1,14 @@
 // SPDX-License-Identifier: BUSL-1.1
 pragma solidity ^0.8.0;
 
-import { SafeERC20Upgradeable, IERC20Upgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol";
-import { IERC1155Upgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC1155/IERC1155Upgradeable.sol";
-import { IERC721Upgradeable } from "@openzeppelin/contracts-upgradeable/token/ERC721/IERC721Upgradeable.sol";
+import {SafeERC20, IERC20} from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
+import {IERC1155} from "@openzeppelin/contracts/token/ERC1155/IERC1155.sol";
+import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 
-import { Structs } from "../interfaces/Structs.sol";
+import {Structs} from "../interfaces/Structs.sol";
 
 library TradeLibrary {
-    using SafeERC20Upgradeable for IERC20Upgradeable;
+    using SafeERC20 for IERC20;
     using TradeLibrary for Structs.Asset;
     using TradeLibrary for Structs.Asset[];
 
@@ -16,12 +16,12 @@ library TradeLibrary {
     error UnknownAssetType();
 
     function safeTransfer721From(Structs.Asset storage asset, address from, address to) internal {
-        IERC721Upgradeable(asset._address).safeTransferFrom(from, to, asset.id);
+        IERC721(asset._address).safeTransferFrom(from, to, asset.id);
     }
 
     // Checks for token fees
     function safeTransfer1155From(Structs.Asset storage asset, address from, address to) internal {
-        IERC1155Upgradeable t = IERC1155Upgradeable(asset._address);
+        IERC1155 t = IERC1155(asset._address);
 
         uint256 originalBalance = t.balanceOf(to, asset.id);
         t.safeTransferFrom(from, to, asset.id, asset.amount, "");
@@ -32,7 +32,7 @@ library TradeLibrary {
 
     // Checks for token fees
     function safeTransfer20From(Structs.Asset storage asset, address from, address to) internal {
-        IERC20Upgradeable t = IERC20Upgradeable(asset._address);
+        IERC20 t = IERC20(asset._address);
 
         uint256 originalBalance = t.balanceOf(to);
         t.safeTransferFrom(from, to, asset.amount);
@@ -55,7 +55,7 @@ library TradeLibrary {
 
     function safeTransfer(Structs.Asset[] storage assets, address from, address to) internal {
         uint256 len = assets.length;
-        for (uint256 i = 0; i < len ; i++) {
+        for (uint256 i = 0; i < len; i++) {
             safeTransfer(assets[i], from, to);
         }
     }

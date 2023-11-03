@@ -1,15 +1,18 @@
 import * as tenderly from "@tenderly/hardhat-tenderly";
-import '@nomicfoundation/hardhat-verify';
+
+tenderly.setup({ automaticVerifications: false });
+
 
 import "@dirtycajunrice/hardhat-tasks/internal/type-extensions"
 import "@dirtycajunrice/hardhat-tasks";
 import "dotenv/config";
-import "./tasks";
 import '@openzeppelin/hardhat-upgrades';
-
-import { NetworksUserConfig } from "hardhat/types";
-
-tenderly.setup({ automaticVerifications: false });
+import '@nomicfoundation/hardhat-verify';
+import { HardhatUserConfig, NetworksUserConfig } from "hardhat/types";
+import "@typechain/hardhat";
+import "hardhat-gas-reporter";
+import "hardhat-contract-sizer";
+import "hardhat-abi-exporter";
 
 const networkData = [
   {
@@ -105,7 +108,10 @@ const networkData = [
   },
 ];
 
-module.exports = {
+const config: HardhatUserConfig = {
+  paths: {
+    sources: "./src/contracts",
+  },
   solidity: {
     compilers: [ "8.20", "8.9", "8.2", "6.0" ].map(v => ({
       version: `0.${v}`,
@@ -143,18 +149,10 @@ module.exports = {
     return o;
   }, {} as NetworksUserConfig),
   etherscan: {
-    apiKey: {
-      mainnet: process.env.ETHERSCAN_API_KEY,
-      arbitrumOne: process.env.ARBISCAN_API_KEY,
-      avalanche: process.env.SNOWTRACE_API_KEY,
-      boba: process.env.BOBASCAN_API_KEY,
-      base: process.env.BASESCAN_API_KEY,
-      polygon: process.env.POLYGONSCAN_API_KEY,
-      polygonZkevm: process.env.ZKEVM_POLYGONSCAN_API_KEY,
-      optimisticEthereum: process.env.OPTIMISTIC_API_KEY,
-      bsc: process.env.BSCSCAN_API_KEY,
-      dfk: process.env.AVASCAN_API_KEY,
-    },
+    apiKey: networkData.reduce((o, network) => {
+      o[network.name] = process.env[`${network.name.toLowerCase()}_API_KEY`] || "not-needed";
+      return o;
+    }, {} as Record<string, string>),
     customChains: networkData.map(network => ({
       network: network.name,
       chainId: network.chainId,
@@ -164,5 +162,27 @@ module.exports = {
   tenderly: {
     project: 'tradescrow',
     username: 'DirtyCajunRice',
-  }
+  },
+  contractSizer: {
+    alphaSort: true,
+    runOnCompile: true,
+    disambiguatePaths: false,
+    strict: true,
+    only: [':Trade.*'],
+    except: [],
+  },
+  abiExporter: {
+    path: "./abis",
+    runOnCompile: true,
+    clear: true,
+    flat: true,
+    only: [ ':Tradescrow' ],
+    spacing: 2,
+    pretty: true,
+  },
+  sourcify: {
+    enabled: true,
+  },
 };
+
+export default config;

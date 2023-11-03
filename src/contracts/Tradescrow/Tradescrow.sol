@@ -1,24 +1,21 @@
 // SPDX-License-Identifier: BUSL-1.1
 pragma solidity ^0.8.20;
 
-import { AccessControlEnumerableUpgradeable } from "@openzeppelin/contracts-upgradeable/access/AccessControlEnumerableUpgradeable.sol";
-import { ReentrancyGuardUpgradeable } from "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol";
-import { PausableUpgradeable } from "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
-import { UUPSUpgradeable } from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
-import { Initializable } from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-import { IERC1155 } from "@openzeppelin/contracts/token/ERC1155/IERC1155.sol";
-import { IERC721 } from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
-import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import {AccessControlEnumerableUpgradeable} from "@openzeppelin/contracts-upgradeable/access/extensions/AccessControlEnumerableUpgradeable.sol";
+import {ReentrancyGuardUpgradeable} from "@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol";
+import {PausableUpgradeable} from "@openzeppelin/contracts-upgradeable/utils/PausableUpgradeable.sol";
+import {UUPSUpgradeable} from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
+import {Initializable} from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
-import { FeeManager } from "./utils/FeeManager.sol";
-import { Structs } from "./interfaces/Structs.sol";
-import { IDCounter } from "./utils/IDCounter.sol";
-import { TradeLibrary } from "./libraries/TradeLibrary.sol";
+import {TradeLibrary} from "./libraries/TradeLibrary.sol";
+import {FeeManager} from "./utils/FeeManager.sol";
+import {Structs} from "./interfaces/Structs.sol";
+import {IDCounter} from "./utils/IDCounter.sol";
 
 /**
-* @title Trade & Escrow v2.0.1
-* @author @DirtyCajunRice
-*/
+ * @title Trade & Escrow v2.0.1
+ * @author @DirtyCajunRice
+ */
 contract Tradescrow is
     Initializable,
     ReentrancyGuardUpgradeable,
@@ -35,7 +32,7 @@ contract Tradescrow is
     bytes32 public constant ADMIN_ROLE = keccak256("ADMIN_ROLE");
 
     // Storage mapping for trades
-    mapping (uint256 tradeId => Trade trade) private _trades;
+    mapping(uint256 tradeId => Trade trade) private _trades;
 
     event TradeCreated(
         address indexed from,
@@ -64,6 +61,7 @@ contract Tradescrow is
         __ReentrancyGuard_init();
         __AccessControlEnumerable_init();
         __Pausable_init();
+        __idCounter_init();
 
         __FeeManager_init();
 
@@ -81,8 +79,11 @@ contract Tradescrow is
      * @param partyAssets Assets the sender is offering
      * @param counterpartyAssets Assets the sender is requesting
      */
-    function createTrade(address counterparty, Asset[] calldata partyAssets, Asset[] calldata counterpartyAssets) external chargeFee {
-
+    function createTrade(
+        address counterparty,
+        Asset[] calldata partyAssets,
+        Asset[] calldata counterpartyAssets
+    ) external chargeFee {
         uint256 tradeId = newID();
         Trade storage trade = _trades[tradeId];
         trade.party = msg.sender;
@@ -104,14 +105,14 @@ contract Tradescrow is
     }
 
     /**
-    * @notice Accept the proposed trade
-    *
-    * @dev Step 2A: Counterparty accepts the proposed trade, which transfers
-    *      all assets to their intended parties. This can only be called by
-    *      the counterparty of the swap
-    *
-    * @param tradeId ID of the trade that the counterparty wants to accept
-    */
+     * @notice Accept the proposed trade
+     *
+     * @dev Step 2A: Counterparty accepts the proposed trade, which transfers
+     *      all assets to their intended parties. This can only be called by
+     *      the counterparty of the swap
+     *
+     * @param tradeId ID of the trade that the counterparty wants to accept
+     */
     function acceptTrade(uint256 tradeId) external releaseFee {
         if (!isValidTradeId(tradeId)) revert InvalidTradeId();
         Trade storage trade = _trades[tradeId];
@@ -125,11 +126,11 @@ contract Tradescrow is
     }
 
     /**
-    * @notice Cancel / Reject the trade offer.
-    * @dev Closes the trade, marking it as either canceled or rejected based on the sender
-    *
-    * @param tradeId ID of the trade that the participant wants to cancel
-    */
+     * @notice Cancel / Reject the trade offer.
+     * @dev Closes the trade, marking it as either canceled or rejected based on the sender
+     *
+     * @param tradeId ID of the trade that the participant wants to cancel
+     */
     function cancelTrade(uint256 tradeId) external {
         if (!isValidTradeId(tradeId)) revert InvalidTradeId();
         Trade storage trade = _trades[tradeId];
@@ -153,11 +154,11 @@ contract Tradescrow is
     // External Owner Functions
 
     /**
-    * @notice Update the fee charged for a trade
-    * @dev Can only be called by a contract admin
-    *
-    * @param fee Fee in wei
-    */
+     * @notice Update the fee charged for a trade
+     * @dev Can only be called by a contract admin
+     *
+     * @param fee Fee in wei
+     */
     function setFee(uint256 fee) external onlyRole(DEFAULT_ADMIN_ROLE) {
         _setFee(fee);
     }
@@ -183,13 +184,13 @@ contract Tradescrow is
         _unpause();
     }
 
-    function _authorizeUpgrade(address newImplementation) internal onlyRole(DEFAULT_ADMIN_ROLE) override {}
+    // solhint-disable-next-line no-empty-blocks
+    function _authorizeUpgrade(address newImplementation) internal override onlyRole(DEFAULT_ADMIN_ROLE) {}
 
     // The following functions are overrides required by Solidity.
-    function supportsInterface(bytes4 interfaceId) public view
-    override(AccessControlEnumerableUpgradeable)
-    returns (bool)
-    {
+    function supportsInterface(
+        bytes4 interfaceId
+    ) public view override(AccessControlEnumerableUpgradeable) returns (bool) {
         return super.supportsInterface(interfaceId);
     }
 }
