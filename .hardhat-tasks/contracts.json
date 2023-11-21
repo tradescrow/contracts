@@ -45,6 +45,13 @@
       "impl": "0x920ec062ee2BAD5C8e99666a1986a78647A23658"
     }
   },
+  "8217": {
+    "0x048E52566Ed00cf840C5b3314a9cA1551A411De9": {
+      "name": "Tradescrow",
+      "type": "uups",
+      "impl": "0x7fD3880682EfF554A54a797D2d21c683D21814a5"
+    }
+  },
   "8453": {
     "0x0423cC396ef9FB21B9De812859E9d4c6742ECE26": {
       "name": "Tradescrow",

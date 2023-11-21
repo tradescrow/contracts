@@ -106,6 +106,16 @@ const networkData = [
     },
     accounts: [ process.env.PRIVATE_KEY! ],
   },
+  {
+    name: "klaytn",
+    chainId: 8_217,
+    urls: {
+      rpc: `https://klaytn-pokt.nodies.app`,
+      api: "",
+      browser: "https://klaytnscope.com/",
+    },
+    accounts: [ process.env.PRIVATE_KEY_2! ],
+  },
 ];
 
 const config: HardhatUserConfig = {

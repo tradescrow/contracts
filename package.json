@@ -55,6 +55,7 @@
     "deploy:optimism": "npx hardhat --network optimisticEthereum deploy",
     "deploy:bsc": "npx hardhat --network bsc deploy",
     "deploy:dfk": "npx hardhat --network dfk deploy",
+    "deploy:klaytn": "npx hardhat --network klaytn deploy",
 
     "upgrade:mainnet": "npx hardhat --network mainnet upgrade",
     "upgrade:arbitrum": "npx hardhat --network arbitrumOne upgrade",
@@ -66,6 +67,7 @@
     "upgrade:optimism": "npx hardhat --network optimisticEthereum upgrade",
     "upgrade:bsc": "npx hardhat --network bsc upgrade",
     "upgrade:dfk": "npx hardhat --network dfk upgrade",
+    "upgrade:klaytn": "npx hardhat --network klaytn upgrade",
 
     "verify:mainnet": "npx hardhat --network mainnet verify",
     "verify:arbitrum": "npx hardhat --network arbitrumOne verify",
@@ -77,6 +79,7 @@
     "verify:optimism": "npx hardhat --network optimisticEthereum verify",
     "verify:bsc": "npx hardhat --network bsc verify",
     "verify:dfk": "npx hardhat --network dfk verify",
+    "verify:klaytn": "npx hardhat --network klaytn verify",
 
     "tradescrow:mainnet:deploy": "npm run deploy:mainnet -- --name Tradescrow",
     "tradescrow:mainnet:upgrade": "npm run upgrade:mainnet -- --name Tradescrow",
@@ -117,6 +120,10 @@
     "tradescrow:dfk:deploy": "npm run deploy:dfk -- --name Tradescrow",
     "tradescrow:dfk:upgrade": "npm run upgrade:dfk -- --name Tradescrow",
     "tradescrow:dfk:verify": "npm run verify:dfk -- --name Tradescrow --tenderly",
+
+    "tradescrow:klaytn:deploy": "npm run deploy:klaytn -- --name Tradescrow",
+    "tradescrow:klaytn:upgrade": "npm run upgrade:klaytn -- --name Tradescrow",
+    "tradescrow:klaytn:verify": "npm run verify:klaytn -- --name Tradescrow --tenderly",
 
     "prettier:check": "npx prettier -c src/contracts/**/*.{js,ts,md,sol,json,yml,yaml}",
     "prettier:fix": "npx prettier -w src/contracts/**/*.{js,ts,md,sol,json,yml,yaml}",
